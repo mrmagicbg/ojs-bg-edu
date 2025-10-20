@@ -113,3 +113,27 @@ This repository is an operations companion resource and does not bundle OJS sour
 
 ## Отказ от отговорност
 Този репозиторий е оперативен наръчник и не съдържа сорс кода на OJS.
+
+---
+
+## PDF Export / Експорт в PDF
+
+EN: Use the helper script to build single combined PDFs (English and Bulgarian) via pandoc.
+
+BG: Използвайте помощния скрипт за генериране на обединени PDF версии (английска и българска) чрез pandoc.
+
+Requirements / Изисквания:
+- pandoc (>= 3.x recommended)
+- LaTeX engine (xelatex) with DejaVu fonts (usually in texlive packages) for Unicode Cyrillic.
+
+Command:
+```bash
+./scripts/export-pdf.sh
+```
+
+Result: `export/pdf/ojs-playbook-en.pdf` and `export/pdf/ojs-playbook-bg.pdf`.
+
+Exclude root bilingual files (README, LICENSE, CONTRIBUTING, CODE_OF_CONDUCT):
+```bash
+./scripts/export-pdf.sh --no-root
+```
