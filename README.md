@@ -59,3 +59,57 @@ Open Journal Systems (OJS) © Public Knowledge Project (PKP) – https://pkp.sfu
 
 ## Disclaimer
 This repository is an operations companion resource and does not bundle OJS source code.
+
+---
+
+# (BG) Наръчник – ojs-bg-edu
+
+Ръководство за внедряване и локализация на Open Journal Systems (OJS) 3.5.0-1 с пълна паралелна документация на английски и български за академична / локална инфраструктура.
+
+Документацията е организирана в два дървовидни каталога: английски (`docs/en`) и български (`docs/bg`). Всеки раздел е огледално преведен, така че университетски администратори и екипи по поддръжка да могат да изпълняват задачите на предпочитания език.
+
+## Акценти
+- Фокус върху Ubuntu Server LTS (с бележки за RHEL/Debian)
+- Пълен стек: Nginx/Apache, PHP-FPM, MariaDB/PostgreSQL, Redis, TLS
+- Насоки за сигурна конфигурация и укрепване
+- Поддръжка на английски и български локал
+- Публикуване в кампус и публичен интернет + reverse proxy модели
+- Поддръжка, обновления, резервни копия и аварийно възстановяване
+- Двуезична структура (английски в `docs/en`, български в `docs/bg`)
+
+## Индекс на документите
+1. Преглед / Overview – [бг](docs/bg/overview.md) (EN: [English](docs/en/overview.md))
+2. Изисквания и планиране / Prerequisites – [бг](docs/bg/prerequisites.md) (EN: [English](docs/en/prerequisites.md))
+3. Съвместимост / Version Matrix – [бг](docs/bg/version-matrix.md) (EN: [English](docs/en/version-matrix.md))
+4. Инсталация (Ubuntu) – [бг](docs/bg/install-ubuntu.md) (EN: [English](docs/en/install-ubuntu.md))
+5. Инсталация (RHEL / AlmaLinux / Rocky) – [бг](docs/bg/install-rhel.md) (EN: [English](docs/en/install-rhel.md))
+6. Конфигурация – [бг](docs/bg/configuration.md) (EN: [English](docs/en/configuration.md))
+7. Езикови пакети – [бг](docs/bg/language-packs.md) (EN: [English](docs/en/language-packs.md))
+8. Укрепване на сигурността – [бг](docs/bg/security-hardening.md) (EN: [English](docs/en/security-hardening.md))
+9. Публикуване – [бг](docs/bg/publishing-campus-network.md) (EN: [English](docs/en/publishing-campus-network.md))
+10. Поддръжка и обновления – [бг](docs/bg/maintenance-upgrades.md) (EN: [English](docs/en/maintenance-upgrades.md))
+11. Резервни копия и възстановяване – [бг](docs/bg/backup-restore.md) (EN: [English](docs/en/backup-restore.md))
+12. Отстраняване на проблеми – [бг](docs/bg/troubleshooting.md) (EN: [English](docs/en/troubleshooting.md))
+13. Контролни списъци – [бг](docs/bg/appendix-checklists.md) (EN: [English](docs/en/appendix-checklists.md))
+14. Бележки по пускане 3.5 – [бг](docs/bg/release-notes-3.5.md) (EN: [English](docs/en/release-notes-3.5.md))
+15. Принос (Contributing) – [двуезично](CONTRIBUTING.md)
+16. Кодекс на поведение – [двуезично](CODE_OF_CONDUCT.md)
+
+## Локализация
+Стъпките за добавяне на българската локал (bg_BG) са описани в документа „Езикови пакети“. Двата езикови клона се поддържат синхронно.
+
+## Лицензиране
+- Документация: CC BY 4.0
+- Примери / конфигурации: GPL v3 (или по-нова)
+- Самият OJS: GPL v3 (PKP). Запазете оригиналните известия.
+
+Вижте [LICENSE](LICENSE) за подробности.
+
+## Принос
+Изпращайте промени чрез Pull Request. При структурни промени в английската версия добавяйте съответната българска актуализация в същия PR.
+
+## Дневник на промените
+Виж `CHANGELOG.md` (формат Keep a Changelog / SemVer).
+
+## Отказ от отговорност
+Този репозиторий е оперативен наръчник и не съдържа сорс кода на OJS.
