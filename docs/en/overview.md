@@ -1,7 +1,7 @@
 # Open Journal Systems (OJS) Deployment Playbook – Overview
 
 Status: Draft (v0.1.0)
-Target OJS Version: 3.5.0
+Target OJS Version: 3.5.0-1
 
 This playbook provides a comprehensive, operations-oriented procedure to deploy and operate PKP's Open Journal Systems (OJS) with English and Bulgarian language support in a university (on‑prem or hybrid) environment.
 

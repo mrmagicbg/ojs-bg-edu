@@ -1,6 +1,6 @@
 # OJS 3.5 Release Notes (Summary)
 
-Source: Adapted summary referencing PKP 3.5 Release Notebook (https://docs.pkp.sfu.ca/dev/release-notebooks/en/3.5-release-notebook). Always consult the official notebook for authoritative detail. This summary is provided under the same GPL v3 terms as OJS with attribution to PKP.
+Source: Adapted summary referencing PKP 3.5 Release Notebook (https://docs.pkp.sfu.ca/dev/release-notebooks/en/3.5-release-notebook). Always consult the official notebook for authoritative detail. This summary is provided under the same GPL v3 terms as OJS with attribution to PKP. Bulgarian translation is non-authoritative.
 
 ## Highlights
 - Modernized UI refinements and accessibility improvements.
@@ -39,7 +39,7 @@ Source: Adapted summary referencing PKP 3.5 Release Notebook (https://docs.pkp.s
 - Confirm email templates & locale customizations.
 
 ## Contributing Translations
-Submit updated locale strings upstream to PKP to ensure Bulgarian improvements propagate.
+Submit updated locale strings upstream to PKP to ensure Bulgarian improvements propagate. Always verify release archive SHA256 checksums from official PKP sources before upgrade.
 
 ## Attribution
 Open Journal Systems (OJS) © Public Knowledge Project (PKP). Summary prepared for deployment playbook (this repository).

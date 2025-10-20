@@ -1,15 +1,22 @@
-# Contributor Covenant Code of Conduct
+# Code of Conduct / Кодекс на Поведение (Bilingual Summary)
 
-(Excerpt / Summary) For full details see https://www.contributor-covenant.org/version/2/1/code_of_conduct/
+Full original (EN): https://www.contributor-covenant.org/version/2/1/code_of_conduct/
 
-## Our Pledge
-We pledge to make participation a harassment-free experience for everyone.
+## Our Pledge / Нашият Ангажимент
+EN: Provide a harassment‑free, inclusive environment for all.
+BG: Осигуряваме среда без тормоз и с включващ подход към всички.
 
-## Our Standards
-Examples of positive behavior: inclusive language, respectful feedback. Unacceptable: harassment, trolling, personal attacks.
+## Standards / Стандарти
+EN Positive: Inclusive language, respectful feedback. Unacceptable: Harassment, trolling, personal attacks.
+BG Положително: Включващ език, уважителна обратна връзка. Неприемливо: Тормоз, тролене, лични атаки.
 
-## Enforcement
-Report issues via GitHub issues or direct maintainer contact. Maintainers may take appropriate action including warnings or bans.
+## Enforcement / Прилагане
+EN: Report via issues or direct maintainer contact; actions may include warnings or bans.
+BG: Докладвайте чрез issue или директно. Възможни действия: предупреждение или блокиране.
 
-## Attribution
-Portions adapted from Contributor Covenant v2.1.
+## Scope / Обхват
+EN: Applies to all repo spaces and external contexts when representing project.
+BG: Важи за всички канали свързани с проекта.
+
+## Attribution / Атрибуция
+Adapted from Contributor Covenant v2.1. Bulgarian summary is non-authoritative.

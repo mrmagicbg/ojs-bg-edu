@@ -1,15 +1,49 @@
-# Licensing Overview
+# Licensing (English)
 
 This repository contains two categories of content with different licenses:
 
-1. Documentation (all files under `docs/` unless otherwise noted) is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0). See `docs/LICENSE-CC-BY-4.0.md`.
-2. Example scripts / configuration snippets (if any added later) are licensed under the GNU General Public License v3.0 (GPL-3.0-or-later) unless an individual file header specifies otherwise. See `docs/LICENSE-GPL-3.0.md`.
+1. Documentation (all files under `docs/` unless otherwise noted) is licensed under Creative Commons Attribution 4.0 International (CC BY 4.0).
+2. Example scripts / configuration snippets (if added) are licensed under the GNU General Public License v3.0 or later (GPL-3.0-or-later) unless a file header states otherwise.
 
-Open Journal Systems (OJS) itself is developed and distributed by the Public Knowledge Project (PKP) under the GNU General Public License v3. Refer to: https://pkp.sfu.ca/ojs/
+Open Journal Systems (OJS) is © Public Knowledge Project (PKP) and distributed under GNU GPL v3. See: https://pkp.sfu.ca/ojs/
 
-Attribution Requirements:
-- Credit "Public Knowledge Project (PKP)" for OJS software.
-- Include link to https://pkp.sfu.ca/ and OJS project page.
-- Retain original license notices in any redistributed code derived from OJS.
+## Attribution Requirements
+- Credit: "Public Knowledge Project (PKP)".
+- Link to https://pkp.sfu.ca/ and the OJS project page.
+- Retain original GPL and CC BY notices in redistributed or derivative works.
+
+## CC BY 4.0 (Summary)
+Official: https://creativecommons.org/licenses/by/4.0/
+You are free to Share and Adapt with Attribution and without adding further restrictions.
+
+## GPL v3 (Summary)
+Official: https://www.gnu.org/licenses/gpl-3.0.txt
+Copyleft license permitting commercial use, modification, distribution, patent use, private use; requires source disclosure and same license.
+
+SPDX-License-Identifier: CC-BY-4.0 AND GPL-3.0-or-later
+
+---
+
+# Лицензиране (Bulgarian)
+
+Този репозиторий включва две категории съдържание с различни лицензи:
+
+1. Документация (в `docs/` освен ако не е упоменато друго) – Creative Commons Attribution 4.0 International (CC BY 4.0).
+2. Примери / конфигурационни снипети – GNU General Public License v3.0 или по-нова (GPL-3.0-or-later), освен ако даден файл не посочи друго.
+
+Open Journal Systems (OJS) е © Public Knowledge Project (PKP) и се разпространява под GNU GPL v3.
+
+## Изисквания за Атрибуция
+- Кредит: "Public Knowledge Project (PKP)".
+- Връзка към https://pkp.sfu.ca/ и страницата на OJS.
+- Запазване на оригиналните известия (GPL и CC BY) в копия и производни.
+
+## CC BY 4.0 (Резюме)
+Официално: https://creativecommons.org/licenses/by/4.0/
+Свобода за споделяне и адаптиране при посочване на източник и без допълнителни ограничения.
+
+## GPL v3 (Резюме)
+Официално: https://www.gnu.org/licenses/gpl-3.0.txt
+Позволява модификация и разпространение; изисква публикуване на изходния код и същия лиценз.
 
 SPDX-License-Identifier: CC-BY-4.0 AND GPL-3.0-or-later
