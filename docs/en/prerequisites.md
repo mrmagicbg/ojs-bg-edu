@@ -1,5 +1,7 @@
 # Prerequisites & Planning
 
+> Navigation: [Prev: Overview](overview.md) | [Index](../../README.md#reading-order-document-index) | Next: [Installation (Ubuntu)](install-ubuntu.md) | BG: [Предпоставки](../bg/prerequisites.md)
+
 ## 1. Information to Collect
 | Item | Example | Notes |
 |------|---------|-------|
@@ -56,4 +58,5 @@ Date | Decision | Rationale | Owner
 2025-10-20 | Choose MariaDB | Familiarity + package stability | Sysadmin
 ```
 
-Proceed to `install-ubuntu.md`.
+---
+> Prev: [Overview](overview.md) | Next: [Installation (Ubuntu)](install-ubuntu.md) | Index: [Document Index](../../README.md#reading-order-document-index) | BG: [Предпоставки](../bg/prerequisites.md)

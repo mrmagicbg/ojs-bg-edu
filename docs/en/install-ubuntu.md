@@ -1,5 +1,7 @@
 # Installation – Ubuntu Server (LTS)
 
+> Navigation: [Prev: Prerequisites](prerequisites.md) | [Index](../../README.md#reading-order-document-index) | Next: [Installation (RHEL / AlmaLinux / Rocky)](install-rhel.md) | BG: [Инсталация Ubuntu](../bg/install-ubuntu.md)
+
 Tested Target: Ubuntu 24.04 LTS (adjust if using 22.04)
 Using OJS version 3.5.0 (verify latest at https://pkp.sfu.ca/ojs/ojs_download/ before deployment).
 
@@ -158,4 +160,5 @@ sudo certbot --nginx -d journals.example.edu --redirect --hsts --staple-ocsp --e
 ```
 Auto-renew check: `sudo systemctl list-timers | grep certbot`
 
-Continue with `install-rhel.md` or proceed to `configuration.md`.
+---
+> Prev: [Prerequisites](prerequisites.md) | Next: [Installation (RHEL / AlmaLinux / Rocky)](install-rhel.md) | Alt Path: [Configuration](configuration.md) | Index: [Document Index](../../README.md#reading-order-document-index) | BG: [Инсталация Ubuntu](../bg/install-ubuntu.md)

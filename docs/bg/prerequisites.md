@@ -1,4 +1,6 @@
-# Предпоставки и Планиране
+# Предпоставки и планиране
+
+> Навигация: [Назад: Обзор](overview.md) | [Индекс](../../README.md#reading-order-document-index) | Следва: [Инсталация (Ubuntu)](install-ubuntu.md) | EN: [Prerequisites](../en/prerequisites.md)
 
 ## 1. Информация за събиране
 | Елемент | Пример | Бележки |
@@ -42,4 +44,5 @@ SSH ключове; забрана на пароли. Fail2ban. Автомати
 Дата | Решение | Причина | Отговорник
 ```
 
-Продължете с `install-ubuntu.md`.
+---
+> Назад: [Обзор](overview.md) | Следва: [Инсталация (Ubuntu)](install-ubuntu.md) | Индекс: [Document Index](../../README.md#reading-order-document-index) | EN: [Prerequisites](../en/prerequisites.md)

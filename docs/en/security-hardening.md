@@ -1,5 +1,7 @@
 # Security Hardening
 
+> Navigation: [Prev: Language Packs](language-packs.md) | [Index](../../README.md#reading-order-document-index) | Next: [Publishing (Campus / Internet)](publishing-campus-network.md) | BG: [Сигурност](../bg/security-hardening.md)
+
 ## 1. Principle of Least Privilege
 - DB user limited to OJS schema.
 - Separate system user `ojs` with no shell.
@@ -70,4 +72,5 @@ Monthly restore test in isolated environment.
 ## 11. Upgrades
 Track OJS security advisories (subscribe to PKP mailing list / RSS). Apply minor updates promptly.
 
-Next: `publishing-campus-network.md`.
+---
+> Prev: [Language Packs](language-packs.md) | Next: [Publishing (Campus / Internet)](publishing-campus-network.md) | Index: [Document Index](../../README.md#reading-order-document-index) | BG: [Сигурност](../bg/security-hardening.md)

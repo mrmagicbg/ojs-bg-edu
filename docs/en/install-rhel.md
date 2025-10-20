@@ -1,5 +1,7 @@
 # Installation – RHEL / AlmaLinux / Rocky
 
+> Navigation: [Prev: Installation (Ubuntu)](install-ubuntu.md) | [Index](../../README.md#reading-order-document-index) | Next: [Configuration](configuration.md) | BG: [Инсталация RHEL](../bg/install-rhel.md)
+
 Assumed Version: 9.x
 
 ## 1. Repos & Updates
@@ -78,4 +80,5 @@ sudo dnf install -y certbot python3-certbot-nginx
 sudo certbot --nginx -d journals.example.edu --redirect --hsts --staple-ocsp --email admin@example.edu --agree-tos --no-eff-email
 ```
 
-Continue with `configuration.md`.
+---
+> Prev: [Installation (Ubuntu)](install-ubuntu.md) | Next: [Configuration](configuration.md) | Index: [Document Index](../../README.md#reading-order-document-index) | BG: [Инсталация RHEL](../bg/install-rhel.md)

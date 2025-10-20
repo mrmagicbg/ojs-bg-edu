@@ -1,4 +1,6 @@
-# Езикови Пакети (Английски и Български)
+# Езикови пакети (английски и български)
+
+> Навигация: [Назад: Конфигурация](configuration.md) | [Индекс](../../README.md#reading-order-document-index) | Следва: [Сигурност](security-hardening.md) | EN: [Language Packs](../en/language-packs.md)
 
 ## 1. Обзор
 Английският е вграден. Българският (bg_BG) може да се добави през администрацията.
@@ -39,7 +41,8 @@ sudo update-locale
 | Симптом | Причина | Решение |
 |---------|---------|---------|
 | Липсва локал | Не е инсталиран | Инсталирайте пакета |
-| Грешни символи | Колaция на БД | utf8mb4 |
+| Грешни символи | Колация на БД | utf8mb4 |
 | Частичен превод | Непълен upstream | Допринасяне към PKP |
 
-Следва: `security-hardening.md`.
+---
+> Назад: [Конфигурация](configuration.md) | Следва: [Сигурност](security-hardening.md) | Индекс: [Document Index](../../README.md#reading-order-document-index) | EN: [Language Packs](../en/language-packs.md)

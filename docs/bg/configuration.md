@@ -1,4 +1,6 @@
-# Основна Конфигурация
+# Основна конфигурация
+
+> Навигация: [Назад: Инсталация (RHEL)](install-rhel.md) | [Индекс](../../README.md#reading-order-document-index) | Следва: [Езикови пакети](language-packs.md) | EN: [Configuration](../en/configuration.md)
 
 Редактирайте `config.inc.php` след инсталация.
 
@@ -50,4 +52,5 @@ crontab -u www-data -e
 ## 8. Логове
 Logrotate конфигурация според нуждите.
 
-Следва: `language-packs.md`.
+---
+> Назад: [Инсталация (RHEL)](install-rhel.md) | Следва: [Езикови пакети](language-packs.md) | Индекс: [Document Index](../../README.md#reading-order-document-index) | EN: [Configuration](../en/configuration.md)

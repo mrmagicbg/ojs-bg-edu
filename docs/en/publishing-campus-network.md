@@ -1,5 +1,7 @@
 # Publishing the Portal (Campus to Public Internet)
 
+> Navigation: [Prev: Security Hardening](security-hardening.md) | [Index](../../README.md#reading-order-document-index) | Next: [Maintenance & Upgrades](maintenance-upgrades.md) | BG: [Публикуване](../bg/publishing-campus-network.md)
+
 ## 1. Network Placement
 Preferred: DMZ or reverse proxy in front of application host.
 
@@ -74,4 +76,5 @@ Optional: ModSecurity (CRS) or cloud-based protective layer if policy allows.
 - [ ] Monitoring dashboards active
 - [ ] Load test (baseline throughput)
 
-Next: `maintenance-upgrades.md`.
+---
+> Prev: [Security Hardening](security-hardening.md) | Next: [Maintenance & Upgrades](maintenance-upgrades.md) | Index: [Document Index](../../README.md#reading-order-document-index) | BG: [Публикуване](../bg/publishing-campus-network.md)

@@ -1,5 +1,7 @@
 # Backup & Restore
 
+> Navigation: [Prev: Maintenance & Upgrades](maintenance-upgrades.md) | [Index](../../README.md#reading-order-document-index) | Next: [Troubleshooting](troubleshooting.md) | BG: [Резервни копия](../bg/backup-restore.md)
+
 ## 1. Components to Protect
 - Database (`ojs` schema)
 - Files directory (`/var/ojs-files`)
@@ -60,4 +62,5 @@ tar -xzf public-YYYY-MM-DD-HHMM.tgz -C /var/www/ojs
 ## 5. Verification
 Monthly: simulate restore to staging; verify login, sample article.
 
-Next: `troubleshooting.md`.
+---
+> Prev: [Maintenance & Upgrades](maintenance-upgrades.md) | Next: [Troubleshooting](troubleshooting.md) | Index: [Document Index](../../README.md#reading-order-document-index) | BG: [Резервни копия](../bg/backup-restore.md)

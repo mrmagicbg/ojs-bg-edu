@@ -1,5 +1,7 @@
 # Core Configuration
 
+> Navigation: [Prev: Installation (RHEL)](install-rhel.md) | [Index](../../README.md#reading-order-document-index) | Next: [Language Packs](language-packs.md) | BG: [Конфигурация](../bg/configuration.md)
+
 Edit `config.inc.php` after install.
 
 ## 1. Base Settings
@@ -80,4 +82,5 @@ Centralize Nginx/PHP logs. Consider logrotate adjustments:
 ## 9. Plugins
 Review official plugin gallery. Disable unused to reduce attack surface.
 
-Next: `language-packs.md`.
+---
+> Prev: [Installation (RHEL)](install-rhel.md) | Next: [Language Packs](language-packs.md) | Index: [Document Index](../../README.md#reading-order-document-index) | BG: [Конфигурация](../bg/configuration.md)
