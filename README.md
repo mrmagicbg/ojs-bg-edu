@@ -1,6 +1,6 @@
 # ojs-bg-edu
 
-Deployment playbook and localization resources for installing and operating the latest Open Journal Systems (OJS) with English and Bulgarian language support in academic / on‑prem environments.
+Deployment playbook and localization resources for installing and operating Open Journal Systems (OJS) 3.5.0 with English and Bulgarian language support in academic / on‑prem environments.
 
 ## Highlights
 - Ubuntu Server LTS focused walkthrough (with RHEL/Debian notes)
@@ -12,7 +12,10 @@ Deployment playbook and localization resources for installing and operating the 
 - Dual-language documentation (English in `docs/en`, Bulgarian in `docs/bg`)
 
 ## Document Map
-See `docs/en/overview.md` (English) and its Bulgarian counterpart once translated.
+Core overview: `docs/en/overview.md`
+Version & compatibility: `docs/en/version-matrix.md`
+Contributing: `CONTRIBUTING.md` (BG: `docs/bg/contributing.md`)
+Code of Conduct: `CODE_OF_CONDUCT.md` (BG summary: `docs/bg/code-of-conduct-summary.md`)
 
 ## Quick Start (Ubuntu LTS)
 ```bash
@@ -23,13 +26,13 @@ sudo apt install -y nginx php-fpm mariadb-server redis-server \
 
 # DB (MariaDB) – run mysql_secure_installation then create DB/user
 # Download OJS
-cd /tmp && curl -LO https://pkp.sfu.ca/ojs/download/ojs-X.Y.Z.tar.gz
+cd /tmp && curl -LO https://pkp.sfu.ca/ojs/download/ojs-3.5.0.tar.gz
 sudo mkdir -p /var/www/ojs /var/ojs-files
-sudo tar -xzf ojs-X.Y.Z.tar.gz -C /var/www/ojs --strip-components=1
+sudo tar -xzf ojs-3.5.0.tar.gz -C /var/www/ojs --strip-components=1
 
 # Configure Nginx, adjust PHP, visit installer
 ```
-Replace `X.Y.Z` with latest stable version from PKP.
+Adjust if a newer 3.5.x patch version is released; always verify checksum from PKP.
 
 ## Localization
 Install Bulgarian locale via the OJS Admin interface (Administration > Languages). Then update `config.inc.php` to include `bg_BG` in installed and supported locales.
@@ -51,10 +54,9 @@ See `CHANGELOG.md` (Keep a Changelog format, Semantic Versioning).
 Open Journal Systems (OJS) © Public Knowledge Project (PKP) – https://pkp.sfu.ca/
 
 ## Roadmap
-- [ ] Fill in exact latest OJS version
-- [ ] Add Bulgarian translations
-- [ ] Add optional Ansible playbook
+- [ ] Verify actual release date for 3.5.0
 - [ ] Add monitoring sample dashboards (Prometheus/Grafana)
+- [ ] Optional automation (Ansible) (out of current scope per request)
 
 ## Disclaimer
 This repository is an operations companion resource and does not bundle OJS source code.

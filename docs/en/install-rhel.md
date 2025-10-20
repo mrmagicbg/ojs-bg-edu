@@ -49,8 +49,8 @@ chmod 750 /var/ojs-files
 (Replace version)
 ```bash
 cd /tmp
-curl -LO https://pkp.sfu.ca/ojs/download/ojs-X.Y.Z.tar.gz
-sudo tar -xzf ojs-X.Y.Z.tar.gz -C /var/www/ojs --strip-components=1
+curl -LO https://pkp.sfu.ca/ojs/download/ojs-3.5.0.tar.gz
+sudo tar -xzf ojs-3.5.0.tar.gz -C /var/www/ojs --strip-components=1
 sudo chown -R ojs:ojs /var/www/ojs
 ```
 
