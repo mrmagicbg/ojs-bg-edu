@@ -1,4 +1,6 @@
-# Публикуване (От кампус към Интернет)
+# Публикуване (от кампус към интернет)
+
+> Навигация: [Назад: Сигурност](security-hardening.md) | [Индекс](../../README.md#reading-order-document-index) | Следва: [Поддръжка](maintenance-upgrades.md) | EN: [Publishing](../en/publishing-campus-network.md)
 
 ## 1. Мрежово позициониране
 DMZ или reverse proxy пред приложението.
@@ -30,4 +32,5 @@ ModSecurity по избор.
 ## 10. Go-Live чеклист
 DNS, TLS, backup тест, мониторинг.
 
-Следва: `maintenance-upgrades.md`.
+---
+> Назад: [Сигурност](security-hardening.md) | Следва: [Поддръжка](maintenance-upgrades.md) | Индекс: [Document Index](../../README.md#reading-order-document-index) | EN: [Publishing](../en/publishing-campus-network.md)

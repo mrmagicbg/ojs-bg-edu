@@ -1,4 +1,6 @@
-# Закаляване на Сигурността
+# Закаляване на сигурността
+
+> Навигация: [Назад: Езикови пакети](language-packs.md) | [Индекс](../../README.md#reading-order-document-index) | Следва: [Публикуване](publishing-campus-network.md) | EN: [Security Hardening](../en/security-hardening.md)
 
 ## 1. Права
 Минимални привилегии за БД и системния потребител.
@@ -34,4 +36,5 @@ Jail за уеб входове.
 ## 10. Резервни копия
 Периодични тестове за възстановяване.
 
-Следва: `publishing-campus-network.md`.
+---
+> Назад: [Езикови пакети](language-packs.md) | Следва: [Публикуване](publishing-campus-network.md) | Индекс: [Document Index](../../README.md#reading-order-document-index) | EN: [Security Hardening](../en/security-hardening.md)

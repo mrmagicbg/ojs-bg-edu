@@ -1,5 +1,7 @@
 # Open Journal Systems (OJS) Deployment Playbook – Overview
 
+> Navigation: [Index](../../README.md#reading-order-document-index) | Next: [Prerequisites & Planning](prerequisites.md) | BG: [Обзор](../bg/overview.md)
+
 Status: Draft (v0.1.0)
 Target OJS Version: 3.5.0-1
 
@@ -56,5 +58,5 @@ Secondary (notes only): Debian, RHEL / AlmaLinux / Rocky, openSUSE Leap
 - OJS customization/theme development.
 - Advanced editorial workflow training.
 
-## Next Step
-Continue with `prerequisites.md`.
+---
+> Next: [Prerequisites & Planning](prerequisites.md) | Index: [Document Index](../../README.md#reading-order-document-index) | BG: [Обзор](../bg/overview.md)

@@ -1,5 +1,7 @@
 # Troubleshooting
 
+> Navigation: [Prev: Backup & Restore](backup-restore.md) | [Index](../../README.md#reading-order-document-index) | Next: [Checklists](appendix-checklists.md) | BG: [Отстраняване на проблеми](../bg/troubleshooting.md)
+
 ## 1. Common Issues
 | Issue | Symptom | Resolution |
 |-------|---------|------------|
@@ -44,4 +46,5 @@ status=$(curl -k -o /dev/null -s -w "%{http_code}" "$URL")
 [[ "$status" == "200" ]] || echo "Health check failed: $status" >&2
 ```
 
-Next: `appendix-checklists.md`.
+---
+> Prev: [Backup & Restore](backup-restore.md) | Next: [Checklists](appendix-checklists.md) | Index: [Document Index](../../README.md#reading-order-document-index) | BG: [Отстраняване на проблеми](../bg/troubleshooting.md)

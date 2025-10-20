@@ -1,5 +1,7 @@
 # Maintenance & Upgrades
 
+> Navigation: [Prev: Publishing](publishing-campus-network.md) | [Index](../../README.md#reading-order-document-index) | Next: [Backup & Restore](backup-restore.md) | BG: [Поддръжка](../bg/maintenance-upgrades.md)
+
 ## 1. Routine Tasks
 | Frequency | Task |
 |----------|------|
@@ -44,4 +46,5 @@ Track upstream RSS / mailing list for OJS security releases.
 - Keep latest DB dump and files tar.
 - Document exact upgrade steps and timing.
 
-Next: `backup-restore.md`.
+---
+> Prev: [Publishing](publishing-campus-network.md) | Next: [Backup & Restore](backup-restore.md) | Index: [Document Index](../../README.md#reading-order-document-index) | BG: [Поддръжка](../bg/maintenance-upgrades.md)

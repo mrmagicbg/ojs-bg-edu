@@ -1,4 +1,6 @@
-# Поддръжка и Обновявания
+# Поддръжка и обновявания
+
+> Навигация: [Назад: Публикуване](publishing-campus-network.md) | [Индекс](../../README.md#reading-order-document-index) | Следва: [Резервни копия](backup-restore.md) | EN: [Maintenance](../en/maintenance-upgrades.md)
 
 ## 1. Рутинни задачи
 | Честота | Задача |
@@ -26,4 +28,5 @@ Backup, нов пакет, `upgrade.php upgrade`, проверка, превкл
 ## 7. Rollback
 Последните 2 версии и съответните dump файлове.
 
-Следва: `backup-restore.md`.
+---
+> Назад: [Публикуване](publishing-campus-network.md) | Следва: [Резервни копия](backup-restore.md) | Индекс: [Document Index](../../README.md#reading-order-document-index) | EN: [Maintenance](../en/maintenance-upgrades.md)

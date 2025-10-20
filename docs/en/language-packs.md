@@ -1,5 +1,7 @@
 # Language Packs (English & Bulgarian)
 
+> Navigation: [Prev: Configuration](configuration.md) | [Index](../../README.md#reading-order-document-index) | Next: [Security Hardening](security-hardening.md) | BG: [Езикови пакети](../bg/language-packs.md)
+
 ## 1. Overview
 English is bundled. Bulgarian (bg_BG) may require installation via the OJS administration interface or via CLI depending on version.
 
@@ -57,4 +59,5 @@ php -r 'print_r(localeconv());'
 | Garbled characters | DB collation wrong | Ensure utf8mb4 on all tables |
 | Partial translation | Incomplete upstream locale | Contribute updates to PKP | 
 
-Next: `security-hardening.md`.
+---
+> Prev: [Configuration](configuration.md) | Next: [Security Hardening](security-hardening.md) | Index: [Document Index](../../README.md#reading-order-document-index) | BG: [Езикови пакети](../bg/language-packs.md)

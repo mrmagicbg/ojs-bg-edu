@@ -1,5 +1,7 @@
 # Appendix – Checklists
 
+> Navigation: [Prev: Troubleshooting](troubleshooting.md) | [Index](../../README.md#reading-order-document-index) | BG: [Контролни списъци](../bg/appendix-checklists.md)
+
 ## A. Provisioning
 - [ ] FQDN reserved
 - [ ] Sizing approved

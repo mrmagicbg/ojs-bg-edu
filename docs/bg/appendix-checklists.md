@@ -1,4 +1,6 @@
-# Приложение – Контролни Списъци
+# Приложение – Контролни списъци
+
+> Навигация: [Назад: Отстраняване на проблеми](troubleshooting.md) | [Индекс](../../README.md#reading-order-document-index) | EN: [Checklists](../en/appendix-checklists.md)
 
 ## A. Подготовка
 - [ ] DNS
