@@ -1,4 +1,6 @@
-# Бележки по Пускане OJS 3.5 (Резюме)
+# Бележки по пускане OJS 3.5 (резюме)
+
+> Навигация: [Назад: Контролни списъци](appendix-checklists.md) | [Индекс](../../README.md#reading-order-document-index) | EN: [Release Notes 3.5](../en/release-notes-3.5.md)
 
 Източник: Обобщение на основата на официалния PKP 3.5 Release Notebook (https://docs.pkp.sfu.ca/dev/release-notebooks/en/3.5-release-notebook). За пълни детайли използвайте оригинала. Българският превод е неофициален и не е авторитетен. Това резюме е с атрибуция към PKP.
 
@@ -42,3 +44,6 @@
 
 ## Атрибуция
 Open Journal Systems (OJS) © PKP. Резюме, подготвено за този наръчник.
+
+---
+> Назад: [Контролни списъци](appendix-checklists.md) | Индекс: [Document Index](../../README.md#reading-order-document-index) | EN: [Release Notes 3.5](../en/release-notes-3.5.md)

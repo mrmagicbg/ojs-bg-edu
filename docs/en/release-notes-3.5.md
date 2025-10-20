@@ -1,5 +1,7 @@
 # OJS 3.5 Release Notes (Summary)
 
+> Navigation: [Prev: Checklists](appendix-checklists.md) | [Index](../../README.md#reading-order-document-index) | BG: [Бележки по пускане 3.5](../bg/release-notes-3.5.md)
+
 Source: Adapted summary referencing PKP 3.5 Release Notebook (https://docs.pkp.sfu.ca/dev/release-notebooks/en/3.5-release-notebook). Always consult the official notebook for authoritative detail. This summary is provided under the same GPL v3 terms as OJS with attribution to PKP. Bulgarian translation is non-authoritative.
 
 ## Highlights
@@ -43,3 +45,6 @@ Submit updated locale strings upstream to PKP to ensure Bulgarian improvements p
 
 ## Attribution
 Open Journal Systems (OJS) © Public Knowledge Project (PKP). Summary prepared for deployment playbook (this repository).
+
+---
+> Prev: [Checklists](appendix-checklists.md) | Index: [Document Index](../../README.md#reading-order-document-index) | BG: [Бележки по пускане 3.5](../bg/release-notes-3.5.md)
