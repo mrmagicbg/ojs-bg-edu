@@ -1,0 +1,46 @@
+# Appendix – Checklists
+
+## A. Provisioning
+- [ ] FQDN reserved
+- [ ] Sizing approved
+- [ ] Network ports approved
+- [ ] Backup target available
+
+## B. OS Baseline
+- [ ] Packages updated
+- [ ] Time sync configured
+- [ ] SSH hardened
+- [ ] Fail2ban active
+
+## C. Stack Install
+- [ ] Web server configured
+- [ ] PHP modules installed
+- [ ] DB created
+- [ ] Redis running
+- [ ] OJS code deployed
+
+## D. Install & Config
+- [ ] Web installer completed
+- [ ] `files_dir` outside web root
+- [ ] Primary locale set
+- [ ] Bulgarian locale installed
+- [ ] Email tested
+
+## E. Security
+- [ ] TLS enabled
+- [ ] Headers enforced
+- [ ] File perms restricted
+- [ ] Unused plugins removed
+
+## F. Go-Live
+- [ ] Monitoring dashboards
+- [ ] Backup tested
+- [ ] Load test baseline
+- [ ] Change ticket closed
+
+## G. Operations
+- [ ] Upgrade runbook stored
+- [ ] On-call contact list
+- [ ] Recovery time objective documented
+
+End of English documentation set.
