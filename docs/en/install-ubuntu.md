@@ -1,7 +1,7 @@
 # Installation – Ubuntu Server (LTS)
 
 Tested Target: Ubuntu 24.04 LTS (adjust if using 22.04)
-Replace OJS version placeholder `X.Y.Z` with latest stable from https://pkp.sfu.ca/ojs/ojs_download/.
+Using OJS version 3.5.0 (verify latest at https://pkp.sfu.ca/ojs/ojs_download/ before deployment).
 
 ## 1. Update System & Enable Repos
 ```bash
@@ -77,8 +77,8 @@ sudo chmod 750 /var/ojs-files
 ## 7. Download OJS Release
 ```bash
 cd /tmp
-curl -LO https://pkp.sfu.ca/ojs/download/ojs-X.Y.Z.tar.gz
-sudo tar -xzf ojs-X.Y.Z.tar.gz -C /var/www/ojs --strip-components=1
+curl -LO https://pkp.sfu.ca/ojs/download/ojs-3.5.0.tar.gz
+sudo tar -xzf ojs-3.5.0.tar.gz -C /var/www/ojs --strip-components=1
 sudo chown -R ojs:ojs /var/www/ojs
 ```
 

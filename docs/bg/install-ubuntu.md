@@ -1,7 +1,7 @@
 # Инсталация – Ubuntu Server (LTS)
 
 Тестова версия: Ubuntu 24.04 LTS
-Заменете `X.Y.Z` с последната стабилна версия от сайта на PKP.
+Използва се OJS версия 3.5.0 (проверете за по-нова пач версия преди внедряване).
 
 ## 1. Обновяване на системата
 ```bash
@@ -52,8 +52,8 @@ chmod 750 /var/ojs-files
 ## 6. Изтегляне на OJS
 ```bash
 cd /tmp
-curl -LO https://pkp.sfu.ca/ojs/download/ojs-X.Y.Z.tar.gz
-sudo tar -xzf ojs-X.Y.Z.tar.gz -C /var/www/ojs --strip-components=1
+curl -LO https://pkp.sfu.ca/ojs/download/ojs-3.5.0.tar.gz
+sudo tar -xzf ojs-3.5.0.tar.gz -C /var/www/ojs --strip-components=1
 sudo chown -R ojs:ojs /var/www/ojs
 ```
 
