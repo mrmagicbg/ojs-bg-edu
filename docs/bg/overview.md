@@ -1,6 +1,6 @@
-# Наръчник за внедряване на Open Journal Systems (OJS) – Обзор
+# Наръчник за внедряване на Open Journal Systems (OJS) – Преглед
 
-> Навигация: [Индекс](../../README.md#reading-order-document-index) | Следва: [Предпоставки и планиране](prerequisites.md) | EN: [Overview](../en/overview.md)
+> Навигация: [Индекс](../../README.md#reading-order-document-index) | Следва: [Изисквания и планиране](prerequisites.md) | EN: [Overview](../en/overview.md)
 
 Статус: Чернова (v0.1.0)
 Целева версия на OJS: 3.5.0-1
@@ -59,4 +59,4 @@
 - Детайлно обучение на редакторски процес.
 
 ---
-> Следва: [Предпоставки и планиране](prerequisites.md) | Индекс: [Document Index](../../README.md#reading-order-document-index) | EN: [Overview](../en/overview.md)
+> Следва: [Изисквания и планиране](prerequisites.md) | Индекс: [Document Index](../../README.md#reading-order-document-index) | EN: [Overview](../en/overview.md)

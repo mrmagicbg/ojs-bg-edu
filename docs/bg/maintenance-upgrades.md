@@ -1,4 +1,4 @@
-# Поддръжка и обновявания
+# Поддръжка и обновления
 
 > Навигация: [Назад: Публикуване](publishing-campus-network.md) | [Индекс](../../README.md#reading-order-document-index) | Следва: [Резервни копия](backup-restore.md) | EN: [Maintenance](../en/maintenance-upgrades.md)
 

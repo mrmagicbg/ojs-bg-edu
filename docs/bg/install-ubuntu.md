@@ -1,6 +1,6 @@
 # Инсталация – Ubuntu Server (LTS)
 
-> Навигация: [Назад: Предпоставки](prerequisites.md) | [Индекс](../../README.md#reading-order-document-index) | Следва: [Инсталация (RHEL / AlmaLinux / Rocky)](install-rhel.md) | EN: [Ubuntu Installation](../en/install-ubuntu.md)
+> Навигация: [Назад: Изисквания](prerequisites.md) | [Индекс](../../README.md#reading-order-document-index) | Следва: [Инсталация (RHEL / AlmaLinux / Rocky)](install-rhel.md) | EN: [Ubuntu Installation](../en/install-ubuntu.md)
 
 Тестова версия: Ubuntu 24.04 LTS
 Използва се OJS версия 3.5.0 (проверете за по-нова пач версия преди внедряване).
@@ -75,4 +75,4 @@ sudo certbot --nginx -d journals.example.edu --redirect --hsts --staple-ocsp --e
 ```
 
 ---
-> Назад: [Предпоставки](prerequisites.md) | Следва: [Инсталация (RHEL / AlmaLinux / Rocky)](install-rhel.md) | Алтернативно: [Конфигурация](configuration.md) | Индекс: [Document Index](../../README.md#reading-order-document-index) | EN: [Ubuntu Installation](../en/install-ubuntu.md)
+> Назад: [Изисквания](prerequisites.md) | Следва: [Инсталация (RHEL / AlmaLinux / Rocky)](install-rhel.md) | Алтернативно: [Конфигурация](configuration.md) | Индекс: [Document Index](../../README.md#reading-order-document-index) | EN: [Ubuntu Installation](../en/install-ubuntu.md)
