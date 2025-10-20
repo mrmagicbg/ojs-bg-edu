@@ -31,7 +31,7 @@ sudo mysql_secure_installation
 SQL:
 ```sql
 CREATE DATABASE ojs CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE USER 'ojs'@'localhost' IDENTIFIED BY 'СИЛНА_ПАРОЛА';
+CREATE USER 'ojs'@'localhost' IDENTIFIED BY 'STRONG_PASSWORD_CHANGE_ME';
 GRANT ALL PRIVILEGES ON ojs.* TO 'ojs'@'localhost';
 FLUSH PRIVILEGES;
 ```

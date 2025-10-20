@@ -31,7 +31,7 @@ smtp_server = smtp.university.edu
 smtp_port = 587
 smtp_auth = PLAIN
 smtp_username = no-reply@university.edu
-smtp_password = ПРОМЕНЕТЕ
+smtp_password = CHANGE_ME_SECURE_PASSWORD
 smtp_encryption = tls
 ```
 
