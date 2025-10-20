@@ -2,7 +2,8 @@
 
 | OJS Version | Release Date* | Min PHP | Recommended PHP | Database (Tested) | Notes |
 |-------------|---------------|---------|-----------------|-------------------|-------|
-| 3.5.0 | 2025-??-?? | 8.0 | 8.2 | MariaDB 10.6–10.11, MySQL 8.0, PostgreSQL 14–16 | Use utf8mb4; verify plugin compatibility |
+| 3.5.0 | 2025-??-?? | 8.0 | 8.2 | MariaDB 10.6–10.11, MySQL 8.0, PostgreSQL 14–16 | Initial 3.5 baseline |
+| 3.5.0-1 | 2025-??-?? | 8.0 | 8.2 | Same as 3.5.0 | Patch: security & minor fixes |
 
 *Replace with actual release date when confirmed.
 

@@ -1,6 +1,8 @@
 # ojs-bg-edu
 
-Deployment playbook and localization resources for installing and operating Open Journal Systems (OJS) 3.5.0 with English and Bulgarian language support in academic / on‑prem environments.
+Deployment playbook and localization resources for installing and operating Open Journal Systems (OJS) 3.5.0-1 with fully parallel English and Bulgarian documentation for academic / on‑prem environments.
+
+This repository provides two complete documentation trees: English (`docs/en`) and Bulgarian (`docs/bg`). Each guide is translated so university administrators can perform deployment, configuration, and operations tasks in their preferred language.
 
 ## Highlights
 - Ubuntu Server LTS focused walkthrough (with RHEL/Debian notes)
@@ -11,31 +13,28 @@ Deployment playbook and localization resources for installing and operating Open
 - Maintenance, upgrades, backup/restore runbooks
 - Dual-language documentation (English in `docs/en`, Bulgarian in `docs/bg`)
 
-## Document Map
-Core overview: `docs/en/overview.md`
-Version & compatibility: `docs/en/version-matrix.md`
-Contributing: `CONTRIBUTING.md` (BG: `docs/bg/contributing.md`)
-Code of Conduct: `CODE_OF_CONDUCT.md` (BG summary: `docs/bg/code-of-conduct-summary.md`)
+## Reading Order (Document Index)
+1. Overview / Архитектура – `docs/en/overview.md` (BG: `docs/bg/overview.md`)
+2. Prerequisites & Planning / Предпоставки – `docs/en/prerequisites.md` (BG: `docs/bg/prerequisites.md`)
+3. Version & Compatibility Matrix / Съвместимост – `docs/en/version-matrix.md` (BG: `docs/bg/version-matrix.md`)
+4. Installation (Ubuntu) – `docs/en/install-ubuntu.md` (BG: `docs/bg/install-ubuntu.md`)
+5. Installation (RHEL / AlmaLinux / Rocky) – `docs/en/install-rhel.md` (BG: `docs/bg/install-rhel.md`)
+6. Configuration – `docs/en/configuration.md` (BG: `docs/bg/configuration.md`)
+7. Language Packs – `docs/en/language-packs.md` (BG: `docs/bg/language-packs.md`)
+8. Security Hardening – `docs/en/security-hardening.md` (BG: `docs/bg/security-hardening.md`)
+9. Publishing (Campus / Internet) – `docs/en/publishing-campus-network.md` (BG: `docs/bg/publishing-campus-network.md`)
+10. Maintenance & Upgrades – `docs/en/maintenance-upgrades.md` (BG: `docs/bg/maintenance-upgrades.md`)
+11. Backup & Restore – `docs/en/backup-restore.md` (BG: `docs/bg/backup-restore.md`)
+12. Troubleshooting – `docs/en/troubleshooting.md` (BG: `docs/bg/troubleshooting.md`)
+13. Checklists – `docs/en/appendix-checklists.md` (BG: `docs/bg/appendix-checklists.md`)
+14. Release Notes Summary – `docs/en/release-notes-3.5.md` (BG: `docs/bg/release-notes-3.5.md`)
+15. Contributing – `CONTRIBUTING.md` (BG: `docs/bg/contributing.md`)
+16. Code of Conduct – `CODE_OF_CONDUCT.md` (BG summary: `docs/bg/code-of-conduct-summary.md`)
 
-## Quick Start (Ubuntu LTS)
-```bash
-# System prep
-sudo apt update && sudo apt -y upgrade
-sudo apt install -y nginx php-fpm mariadb-server redis-server \
-  php-cli php-mysql php-xml php-gd php-curl php-mbstring php-zip php-intl php-ldap php-imagick php-json php-opcache
-
-# DB (MariaDB) – run mysql_secure_installation then create DB/user
-# Download OJS
-cd /tmp && curl -LO https://pkp.sfu.ca/ojs/download/ojs-3.5.0.tar.gz
-sudo mkdir -p /var/www/ojs /var/ojs-files
-sudo tar -xzf ojs-3.5.0.tar.gz -C /var/www/ojs --strip-components=1
-
-# Configure Nginx, adjust PHP, visit installer
-```
-Adjust if a newer 3.5.x patch version is released; always verify checksum from PKP.
+All command-level implementation details are intentionally kept inside the specific guide documents to keep this README high-level.
 
 ## Localization
-Install Bulgarian locale via the OJS Admin interface (Administration > Languages). Then update `config.inc.php` to include `bg_BG` in installed and supported locales.
+Bulgarian (bg_BG) language enablement steps are described in the language packs guide. Both English and Bulgarian tutorials mirror each other to simplify training and maintenance.
 
 ## Licensing
 - Documentation: CC BY 4.0
@@ -54,7 +53,7 @@ See `CHANGELOG.md` (Keep a Changelog format, Semantic Versioning).
 Open Journal Systems (OJS) © Public Knowledge Project (PKP) – https://pkp.sfu.ca/
 
 ## Roadmap
-- [ ] Verify actual release date for 3.5.0
+- [ ] Verify actual release date for 3.5.0-1
 - [ ] Add monitoring sample dashboards (Prometheus/Grafana)
 - [ ] Optional automation (Ansible) (out of current scope per request)
 
