@@ -4,7 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.0] - 2025-10-20
+## [0.3.0] - 2025-10-24
+### Added
+- Explicit step-by-step instructions for creating/editing `/etc/nginx/sites-available/ojs.conf` (Ubuntu) and `/etc/nginx/conf.d/ojs.conf` (RHEL) in all install docs (EN & BG).
+- Editor-based and here-doc creation methods for nginx site configuration files.
+- Complete nginx server block examples with correct paths for Ubuntu (sites-available/sites-enabled) and RHEL (conf.d/).
+### Changed
+- Replaced placeholders "Same as Ubuntu with path adjustments" and "Сходна с Ubuntu" in RHEL install docs with full explicit nginx configuration instructions.
+- Fixed malformed here-doc section in Ubuntu EN install doc (consolidated and clarified creation options).
+### Fixed
+- Structural parity between English and Bulgarian install documentation (configuration.md, install-rhel.md synchronized).
+
+## [0.2.0] - 2025-10-20
 ### Added
 - Initial repository scaffold: documentation structure (en, bg), licensing placeholders, installation and operations guides (drafts), localization resources for English/Bulgarian.
 

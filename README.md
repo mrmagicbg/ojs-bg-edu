@@ -13,6 +13,8 @@ This repository provides two complete documentation trees: English (`docs/en`) a
 - Maintenance, upgrades, backup/restore runbooks
 - Dual-language documentation (English in `docs/en`, Bulgarian in `docs/bg`)
 
+Quick post-install check: verify Redis is running with `redis-cli ping` (should return `PONG`) — see Checklists (docs/en/appendix-checklists.md).
+
 ## Reading Order (Document Index)
 1. Overview / Архитектура – [English](docs/en/overview.md) (BG: [български](docs/bg/overview.md))
 2. Prerequisites & Planning / Предпоставки – [English](docs/en/prerequisites.md) (BG: [български](docs/bg/prerequisites.md))
@@ -76,6 +78,8 @@ This repository is an operations companion resource and does not bundle OJS sour
 - Публикуване в кампус и публичен интернет + reverse proxy модели
 - Поддръжка, обновления, резервни копия и аварийно възстановяване
 - Двуезична структура (английски в `docs/en`, български в `docs/bg`)
+
+Бърза проверка след инсталация: проверете дали Redis работи с `redis-cli ping` (трябва да върне `PONG`) — вижте Контролни списъци (`docs/bg/appendix-checklists.md`).
 
 ## Индекс на документите
 1. Преглед / Overview – [бг](docs/bg/overview.md) (EN: [English](docs/en/overview.md))

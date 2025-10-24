@@ -1,6 +1,6 @@
 # Installation – RHEL / AlmaLinux / Rocky
 
-> Navigation: [Prev: Installation (Ubuntu)](install-ubuntu.md) | [Index](../../README.md#reading-order-document-index) | Next: [Configuration](configuration.md) | BG: [Инсталация RHEL](../bg/install-rhel.md)
+> Navigation: [Prev: Installation (Ubuntu)](install-ubuntu.md) | [Index](../../README.md#reading-order-document-index) | Next: [Configuration](configuration.md) | Alt Path: [Installation (Ubuntu)](install-ubuntu.md) | BG: [Инсталация RHEL](../bg/install-rhel.md)
 
 Assumed Version: 9.x
 
@@ -98,8 +98,55 @@ sudo tar -xzf ojs-3.5.0-1.tar.gz -C /var/www/ojs --strip-components=1
 sudo chown -R ojs:ojs /var/www/ojs
 ```
 
-## 8. Nginx Config
-Same as Ubuntu with path adjustments.
+## 8. Configure Nginx
+
+Create the site configuration file `/etc/nginx/conf.d/ojs.conf` (RHEL uses `conf.d/` instead of `sites-available/`):
+
+**Option 1 — Use a text editor:**
+```bash
+sudo nano /etc/nginx/conf.d/ojs.conf
+# or
+sudo vim /etc/nginx/conf.d/ojs.conf
+```
+
+**Option 2 — Create with here-doc:**
+```bash
+sudo tee /etc/nginx/conf.d/ojs.conf > /dev/null <<'EOF'
+server {
+    listen 80;
+    server_name journals.example.edu;
+    root /var/www/ojs;
+    index index.php;
+
+    client_max_body_size 64M;
+
+    location ~ ^/files/ { deny all; }
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        include fastcgi_params;
+        fastcgi_pass unix:/run/php-fpm/www.sock;  # RHEL default socket path
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
+        expires 7d;
+        add_header Cache-Control "public";
+    }
+
+    access_log /var/log/nginx/ojs.access.log;
+    error_log /var/log/nginx/ojs.error.log warn;
+}
+EOF
+```
+
+**Test and reload Nginx:**
+```bash
+sudo nginx -t && sudo systemctl reload nginx
+```
 
 ## 9. SELinux Adjustments
 ```bash

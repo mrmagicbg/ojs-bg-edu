@@ -165,10 +165,57 @@ server {
     error_log /var/log/nginx/ojs.error.log warn;
 }
 ```
-Enable site:
+
+**How to create/edit the configuration file:**
+
+Option 1 — Use a text editor interactively:
 ```bash
-sudo ln -s /etc/nginx/sites-available/ojs.conf /etc/nginx/sites-enabled/
+sudo nano /etc/nginx/sites-available/ojs.conf
+# or
+sudo vim /etc/nginx/sites-available/ojs.conf
+```
+Paste the `server { ... }` block shown above, save and exit.
+
+Option 2 — Create the file non-interactively using a here-doc:
+```bash
+sudo tee /etc/nginx/sites-available/ojs.conf > /dev/null <<'EOF'
+server {
+    listen 80;
+    server_name journals.example.edu;
+    root /var/www/ojs;
+    index index.php;
+
+    client_max_body_size 64M;
+
+    location ~ ^/files/ { deny all; }
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php8.3-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
+        expires 7d;
+        add_header Cache-Control "public";
+    }
+
+    access_log /var/log/nginx/ojs.access.log;
+    error_log /var/log/nginx/ojs.error.log warn;
+}
+EOF
+```
+
+**Enable the site and test:**
+```bash
+sudo ln -s /etc/nginx/sites-available/ojs.conf /etc/nginx/sites-enabled/ || true
 sudo nginx -t && sudo systemctl reload nginx
+```
 ```
 
 ## 9. Permissions
@@ -204,9 +251,44 @@ sudo mv /var/www/ojs/docs /var/www/ojs_priv_docs
 ## 12. Enable HTTPS (Let’s Encrypt)
 ```bash
 sudo apt install -y certbot python3-certbot-nginx
+```
+
+Before obtaining certificates, ensure port 443 is open in the host firewall (Ubuntu example uses `ufw`):
+
+```bash
+sudo ufw allow 'Nginx Full'   # opens 80 and 443 (or: sudo ufw allow 443/tcp)
+sudo ufw status verbose
+```
+
+Confirm your Nginx site is enabled and syntax is valid:
+
+```bash
+sudo ln -s /etc/nginx/sites-available/ojs.conf /etc/nginx/sites-enabled/ || true
+sudo nginx -t && sudo systemctl reload nginx
+```
+
+Use certbot to obtain and install a certificate (production):
+
+```bash
 sudo certbot --nginx -d journals.example.edu --redirect --hsts --staple-ocsp --email admin@example.edu --agree-tos --no-eff-email
 ```
-Auto-renew check: `sudo systemctl list-timers | grep certbot`
+
+If you want to test without hitting Let’s Encrypt rate limits, use the staging endpoint:
+
+```bash
+sudo certbot --nginx -d journals.example.edu --staging --email admin@example@example.edu --agree-tos
+```
+
+After successful issuance, verify HTTPS is working and port 443 is served by Nginx. Auto-renewal is handled by systemd timers; verify with:
+
+```bash
+sudo systemctl list-timers | grep certbot
+sudo certbot renew --dry-run
+```
+
+Notes:
+- If you use a different firewall (firewalld on RHEL) open port 443 accordingly.
+- If certbot cannot update your Nginx config (uncommon), it will provide a JSON output and instructions; you can configure the `server` block manually to listen on 443 and include the certificate paths (`/etc/letsencrypt/live/.../fullchain.pem`).
 
 ---
-> Prev: [Prerequisites](prerequisites.md) | Next: [Installation (RHEL / AlmaLinux / Rocky)](install-rhel.md) | Alt Path: [Configuration](configuration.md) | Index: [Document Index](../../README.md#reading-order-document-index) | BG: [Инсталация Ubuntu](../bg/install-ubuntu.md)
+> Prev: [Prerequisites](prerequisites.md) | Next: [Configuration](configuration.md) | Alt Path: [Installation (RHEL / AlmaLinux / Rocky)](install-rhel.md) | Index: [Document Index](../../README.md#reading-order-document-index) | BG: [Инсталация Ubuntu](../bg/install-ubuntu.md)

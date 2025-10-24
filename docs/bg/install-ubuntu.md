@@ -121,7 +121,53 @@ sudo chown -R ojs:ojs /var/www/ojs
 ```
 
 ## 7. Nginx конфигурация
-`/etc/nginx/sites-available/ojs.conf` (аналогично на английската версия).
+Създайте/редактирайте конфигурационния файл на сайта:
+
+```bash
+sudo nano /etc/nginx/sites-available/ojs.conf
+# или неинтерактивно (here-doc):
+sudo tee /etc/nginx/sites-available/ojs.conf > /dev/null <<'EOF'
+# поставете тук server { ... } блока (пример по-долу)
+EOF
+
+# Активирайте сайта и тествайте синтаксиса
+sudo ln -s /etc/nginx/sites-available/ojs.conf /etc/nginx/sites-enabled/ || true
+sudo nginx -t && sudo systemctl reload nginx
+```
+
+Примерен `server` блок (аналогично на английската версия, коригирайте `server_name` и PHP socket ако е нужно):
+
+```
+server {
+	listen 80;
+	server_name journals.example.edu;
+	root /var/www/ojs;
+	index index.php;
+
+	client_max_body_size 64M;
+
+	location ~ ^/files/ { deny all; }
+
+	location / {
+		try_files $uri $uri/ /index.php?$query_string;
+	}
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		fastcgi_pass unix:/run/php/php8.3-fpm.sock; # коригирайте версията ако е различна
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+		include fastcgi_params;
+	}
+
+	location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
+		expires 7d;
+		add_header Cache-Control "public";
+	}
+
+	access_log /var/log/nginx/ojs.access.log;
+	error_log /var/log/nginx/ojs.error.log warn;
+}
+```
 
 ## 8. Права
 Ограничете до необходимите директории за запис.
@@ -136,4 +182,4 @@ sudo certbot --nginx -d journals.example.edu --redirect --hsts --staple-ocsp --e
 ```
 
 ---
-> Назад: [Изисквания](prerequisites.md) | Следва: [Инсталация (RHEL / AlmaLinux / Rocky)](install-rhel.md) | Алтернативно: [Конфигурация](configuration.md) | Индекс: [Document Index](../../README.md#reading-order-document-index) | EN: [Ubuntu Installation](../en/install-ubuntu.md)
+> Назад: [Изисквания](prerequisites.md) | Следва: [Конфигурация](configuration.md) | Алтернативно: [Инсталация (RHEL / AlmaLinux / Rocky)](install-rhel.md) | Индекс: [Document Index](../../README.md#reading-order-document-index) | EN: [Ubuntu Installation](../en/install-ubuntu.md)

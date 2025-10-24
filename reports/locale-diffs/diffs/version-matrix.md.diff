@@ -1,0 +1,52 @@
+--- /home/mrmagic/Code/GitHub/mrmagicbg/ojs-bg-edu/docs/en/version-matrix.md	2025-10-20 23:10:44.253242283 +0300
++++ /home/mrmagic/Code/GitHub/mrmagicbg/ojs-bg-edu/docs/bg/version-matrix.md	2025-10-20 23:10:44.305242586 +0300
+@@ -1,29 +1,25 @@
+-# Version & Compatibility Matrix (OJS 3.5.x)
++# Таблица Съвместимост (OJS 3.5.x)
+ 
+-| OJS Version | Release Date* | Min PHP | Recommended PHP | Database (Tested) | Notes |
+-|-------------|---------------|---------|-----------------|-------------------|-------|
+-| 3.5.0 | 2025-??-?? | 8.0 | 8.2 | MariaDB 10.6–10.11, MySQL 8.0, PostgreSQL 14–16 | Initial 3.5 baseline |
+-| 3.5.0-1 | 2025-??-?? | 8.0 | 8.2 | Same as 3.5.0 | Patch: security & minor fixes |
+-
+-*Replace with actual release date when confirmed.
+-
+-## PHP Extensions Required
+-mbstring, xml, gd, curl, zip, intl, json, mysqli or pdo_mysql (or pgsql), openssl, fileinfo, exif (optional), imagick (recommended).
+-
+-## Recommended Stack for Production
+-- OS: Ubuntu 24.04 LTS or RHEL 9.x
+-- Web: Nginx 1.24+ with PHP-FPM
+-- Cache: Redis (sessions + object cache if supported)
+-- TLS: Let’s Encrypt automated renewal
++| OJS Версия | Дата* | Мин PHP | Препоръчителен PHP | Бази данни | Бележки |
++|------------|-------|---------|--------------------|------------|---------|
++| 3.5.0 | 2025-??-?? | 8.0 | 8.2 | MariaDB 10.6–10.11, MySQL 8.0, PostgreSQL 14–16 | Базова 3.5 версия |
++| 3.5.0-1 | 2025-??-?? | 8.0 | 8.2 | Същото | Пач: сигурност и малки корекции |
+ 
+-## Upgrade Path
+-3.4.x -> 3.5.0: follow standard upgrade procedure (backup, deploy new code, run upgrade script).
++*Попълнете реалната дата след потвърждение.
++
++## PHP Разширения
++mbstring, xml, gd, curl, zip, intl, json, mysqli/pdo_mysql или pgsql, openssl, fileinfo, imagick (препоръчително).
++
++## Препоръчан Стек
++OS Ubuntu 24.04 LTS или RHEL 9.x, Nginx + PHP-FPM, Redis, Let’s Encrypt.
++
++## Ъпгрейд Път
++3.4.x -> 3.5.0 стандартна процедура (backup, нов код, upgrade script).
+ 
+ ## Checksums
+-Always verify tarball SHA256 published by PKP before extraction.
++Винаги проверявайте SHA256 на архива от PKP.
+ 
+-## Future Updates
+-Document 3.5.x patch releases in table below:
+-| Patch | Date | Changes (summary) |
+-|-------|------|-------------------|
+-| 3.5.1 | TBD  | (Add when released) |
++## Бъдещи Пачове
++| Пач | Дата | Промени |
++|-----|------|---------|
++| 3.5.1 | TBD | (Добавете при излизане) |

@@ -1,0 +1,379 @@
+--- /home/mrmagic/Code/GitHub/mrmagicbg/ojs-bg-edu/docs/en/install-ubuntu.md	2025-10-24 20:59:30.317029065 +0300
++++ /home/mrmagic/Code/GitHub/mrmagicbg/ojs-bg-edu/docs/bg/install-ubuntu.md	2025-10-24 19:01:33.873230333 +0300
+@@ -1,130 +1,118 @@
+-# Installation – Ubuntu Server (LTS)
++# Инсталация – Ubuntu Server (LTS)
+ 
+-> Navigation: [Prev: Prerequisites](prerequisites.md) | [Index](../../README.md#reading-order-document-index) | Next: [Installation (RHEL / AlmaLinux / Rocky)](install-rhel.md) | BG: [Инсталация Ubuntu](../bg/install-ubuntu.md)
++> Навигация: [Назад: Изисквания](prerequisites.md) | [Индекс](../../README.md#reading-order-document-index) | Следва: [Инсталация (RHEL / AlmaLinux / Rocky)](install-rhel.md) | EN: [Ubuntu Installation](../en/install-ubuntu.md)
+ 
+-Tested Target: Ubuntu 24.04 LTS (adjust if using 22.04)
+-Using OJS version 3.5.0 (verify latest at https://pkp.sfu.ca/ojs/ojs_download/ before deployment).
++Тестова версия: Ubuntu 24.04 LTS
++Използва се OJS версия 3.5.0 (проверете за по-нова пач версия преди внедряване).
+ 
+-## 1. Update System & Enable Repos
++## 1. Обновяване на системата
+ ```bash
+ sudo apt update && sudo apt -y upgrade
+ sudo apt install -y software-properties-common curl gnupg lsb-release ca-certificates unzip zip tar
+ ```
+ 
+-## 2. Install Web & PHP Stack (Nginx + PHP-FPM)
++## 2. Уеб и PHP (Nginx + PHP-FPM)
+ ```bash
+ sudo apt install -y nginx php-fpm php-cli php-mysql php-xml php-gd php-curl php-mbstring php-zip php-intl php-ldap php-imagick php-xmlrpc php-soap php-json php-opcache php-bcmath php-gmp php-redis
+ ```
+-(Adjust modules to match OJS release notes; some may be optional.)
+-
+-Harden PHP (edit `/etc/php/*/fpm/php.ini`):
++Корекции в `/etc/php/*/fpm/php.ini` (пример):
+ ```
+ expose_php = Off
+ memory_limit = 512M
+ post_max_size = 64M
+ upload_max_filesize = 64M
+ max_execution_time = 120
+-max_input_vars = 3000
+-opcache.enable=1
+-opcache.memory_consumption=128
+ ```
+-Reload (replace `8.3` with your PHP version):
++Презареждане (заменете `8.3` с Вашата PHP версия):
+ ```bash
+ sudo systemctl reload php8.3-fpm
+ ```
+ 
+-## 3. Install Database (MariaDB)
++## 3. База данни (MariaDB)
+ ```bash
+ sudo apt install -y mariadb-server mariadb-client
+ sudo systemctl enable --now mariadb
+ ```
+ 
+-Secure the installation:
++Защита на инсталацията:
+ ```bash
+ sudo mysql_secure_installation
+ ```
+-**Recommended answers:**
+-- `Switch to unix_socket authentication [Y/n]`: **n** (already protected on Ubuntu)
+-- `Change the root password? [Y/n]`: **n** (if already set, otherwise **Y**)
++**Препоръчани отговори:**
++- `Switch to unix_socket authentication [Y/n]`: **n** (вече защитен на Ubuntu)
++- `Change the root password? [Y/n]`: **n** (ако вече е зададена, иначе **Y**)
+ - `Remove anonymous users? [Y/n]`: **Y**
+ - `Disallow root login remotely? [Y/n]`: **Y**
+ - `Remove test database and access to it? [Y/n]`: **Y**
+ - `Reload privilege tables now? [Y/n]`: **Y**
+ 
+-> **⚠️ CRITICAL SECURITY WARNING:**
+-> **REPLACE `CHANGE_ME_STRONG_PASSWORD` WITH A STRONG, UNIQUE PASSWORD!**
+-> Use at least 20+ characters with uppercase, lowercase, numbers, and symbols.
+-> Generate one with: `openssl rand -base64 32`
+-> **Store this password securely** - you'll need it in `config.inc.php` later.
++> **⚠️ КРИТИЧНО ВАЖНО ЗА СИГУРНОСТТА:**
++> **ЗАМЕНЕТЕ `STRONG_PASSWORD_CHANGE_ME` СЪС СИЛНА, УНИКАЛНА ПАРОЛА!**
++> Използвайте поне 20+ символа с главни, малки букви, цифри и специални символи.
++> Генерирайте с: `openssl rand -base64 32`
++> **Съхранете паролата сигурно** - ще Ви трябва в `config.inc.php` по-късно.
+ 
+-Create database & user (access SQL shell first):
++Създаване на база данни и потребител (първо влезте в SQL):
+ ```bash
+ sudo mysql -u root -p
+ ```
+-Then run:
++След това изпълнете:
+ ```sql
+ CREATE DATABASE ojs CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+-CREATE USER 'ojs'@'localhost' IDENTIFIED BY 'CHANGE_ME_STRONG_PASSWORD';
++CREATE USER 'ojs'@'localhost' IDENTIFIED BY 'STRONG_PASSWORD_CHANGE_ME';
+ GRANT ALL PRIVILEGES ON ojs.* TO 'ojs'@'localhost';
+ FLUSH PRIVILEGES;
+ EXIT;
+ ```
+ 
+-**To change the OJS database user password later:**
++**За промяна на паролата на OJS потребителя по-късно:**
+ ```sql
+--- Access MySQL as root
++-- Влезте като root
+ sudo mysql -u root -p
+ 
+--- Change password
+-ALTER USER 'ojs'@'localhost' IDENTIFIED BY 'NEW_STRONG_PASSWORD';
++-- Променете паролата
++ALTER USER 'ojs'@'localhost' IDENTIFIED BY 'НОВА_СИЛНА_ПАРОЛА';
+ FLUSH PRIVILEGES;
+ EXIT;
+ ```
+ 
+-## 5. Redis (Sessions / Cache)
++## 4. Redis
+ ```bash
+-sudo apt install -y redis-server
+-sudo sed -i 's/^supervised no/supervised systemd/' /etc/redis/redis.conf
+-# Enable and start the canonical Redis unit. On Ubuntu the service is
+-# typically `redis-server.service` (the package may also create an alias
+-# `redis.service` which can cause a benign warning when enabling the alias).
+-sudo systemctl enable --now redis-server.service
++sudo apt install -y redis-server php-redis
+ ```
+-PHP extension (if not already): `sudo apt install -y php-redis`
+ 
+-Note about a possible harmless warning:
++Забележка за възможно безвредно предупреждение:
+ 
+-If you see an error like:
++Ако видите грешка като:
+ 
+ ```
+ Failed to enable unit: Refusing to operate on alias name or linked unit file: redis.service
+ ```
+-this usually means an alias (`redis.service`) points to the real unit
+-(`redis-server.service`). The package often already enabled the canonical
+-unit and the message can be ignored. To verify and (re)enable the real
+-unit, run:
++обикновено означава, че alias (`redis.service`) сочи към реалната услуга
++(`redis-server.service`). Пакетът често вече е активирал каноничната
++услуга и съобщението може да се игнорира. За да проверите и (повторно)
++активирате реалната услуга, изпълнете:
+ 
+ ```bash
+ systemctl list-unit-files | grep -i redis
+ sudo systemctl status redis-server.service
+ sudo systemctl enable --now redis-server.service
+-sudo systemctl restart redis-server.service   # apply supervised change
+-redis-cli ping  # should return PONG
++sudo systemctl restart redis-server.service   # приложете supervised промяната
++redis-cli ping  # трябва да върне PONG
+ ```
+ 
+-If `redis-cli ping` returns `PONG`, Redis is running and ready to use.
++Ако `redis-cli ping` върне `PONG`, Redis работи и е готов за употреба.
++```
+ 
+-## 6. Create OJS System User & Directories
++## 5. Потребител и директории
+ ```bash
+ sudo adduser --system --group --home /var/www/ojs ojs
+-sudo mkdir -p /var/www/ojs/public
+-sudo mkdir -p /var/ojs-files
++sudo mkdir -p /var/www/ojs/public /var/ojs-files
+ sudo chown -R ojs:ojs /var/www/ojs /var/ojs-files
+-sudo chmod 750 /var/ojs-files
++chmod 750 /var/ojs-files
+ ```
+-`/var/ojs-files` must be outside web root.
+ 
+-## 7. Download OJS Release
++## 6. Изтегляне на OJS
+ ```bash
+ cd /tmp
+ curl -LO https://pkp.sfu.ca/ojs/download/ojs-3.5.0-1.tar.gz
+@@ -132,163 +120,66 @@
+ sudo chown -R ojs:ojs /var/www/ojs
+ ```
+ 
+-## 8. Configure Nginx
+-`/etc/nginx/sites-available/ojs.conf`:
+-```
+-server {
+-    listen 80;
+-    server_name journals.example.edu;
+-    root /var/www/ojs;
+-    index index.php;
+-
+-    client_max_body_size 64M;
+-
+-    location ~ ^/files/ { deny all; }
+-
+-    location / {
+-        try_files $uri $uri/ /index.php?$query_string;
+-    }
+-
+-    location ~ \.php$ {
+-        include snippets/fastcgi-php.conf;
+-        fastcgi_pass unix:/run/php/php8.3-fpm.sock; # adjust version (8.1, 8.2, 8.3)
+-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+-        include fastcgi_params;
+-    }
+-
+-    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
+-        expires 7d;
+-        add_header Cache-Control "public";
+-    }
++## 7. Nginx конфигурация
++Създайте/редактирайте конфигурационния файл на сайта:
+ 
+-    access_log /var/log/nginx/ojs.access.log;
+-    error_log /var/log/nginx/ojs.error.log warn;
+-}
+-```
+-
+-**How to create/edit the configuration file:**
+-
+-Option 1 — Use a text editor interactively:
+ ```bash
+ sudo nano /etc/nginx/sites-available/ojs.conf
+-# or
+-sudo vim /etc/nginx/sites-available/ojs.conf
+-```
+-Paste the `server { ... }` block shown above, save and exit.
+-
+-Option 2 — Create the file non-interactively using a here-doc:
+-```bash
++# или неинтерактивно (here-doc):
+ sudo tee /etc/nginx/sites-available/ojs.conf > /dev/null <<'EOF'
+-server {
+-    listen 80;
+-    server_name journals.example.edu;
+-    root /var/www/ojs;
+-    index index.php;
+-
+-    client_max_body_size 64M;
+-
+-    location ~ ^/files/ { deny all; }
+-
+-    location / {
+-        try_files $uri $uri/ /index.php?$query_string;
+-    }
+-
+-    location ~ \.php$ {
+-        include snippets/fastcgi-php.conf;
+-        fastcgi_pass unix:/run/php/php8.3-fpm.sock;
+-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+-        include fastcgi_params;
+-    }
+-
+-    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
+-        expires 7d;
+-        add_header Cache-Control "public";
+-    }
+-
+-    access_log /var/log/nginx/ojs.access.log;
+-    error_log /var/log/nginx/ojs.error.log warn;
+-}
++# поставете тук server { ... } блока (пример по-долу)
+ EOF
+-```
+ 
+-**Enable the site and test:**
+-```bash
++# Активирайте сайта и тествайте синтаксиса
+ sudo ln -s /etc/nginx/sites-available/ojs.conf /etc/nginx/sites-enabled/ || true
+ sudo nginx -t && sudo systemctl reload nginx
+ ```
+-```
+-
+-## 9. Permissions
+-Writable: `config.inc.php` (temporarily during install), `cache/`, `public/`, `plugins/` where updates occur.
+-```bash
+-sudo chown -R ojs:ojs /var/www/ojs
+-find /var/www/ojs -type f -exec chmod 640 {} \;
+-find /var/www/ojs -type d -exec chmod 750 {} \;
+-```
+-Adjust for web server group (e.g., `www-data`):
+-```bash
+-sudo usermod -a -G ojs www-data
+-sudo chmod g+rx /var/www/ojs
+-```
+-
+-## 10. Run Web Installer
+-Browse: `http://journals.example.edu/`
+-Provide:
+-- Database type + credentials
+-- Files directory: `/var/ojs-files`
+-- Locale: English (primary) (Bulgarian added later)
+-- Administrator account
+ 
+-## 11. Post-Install Hardening
+-```bash
+-sudo chmod 640 /var/www/ojs/config.inc.php
+-```
+-Move `docs/` if public exposure undesired:
+-```bash
+-sudo mv /var/www/ojs/docs /var/www/ojs_priv_docs
+-```
++Примерен `server` блок (аналогично на английската версия, коригирайте `server_name` и PHP socket ако е нужно):
+ 
+-## 12. Enable HTTPS (Let’s Encrypt)
+-```bash
+-sudo apt install -y certbot python3-certbot-nginx
+ ```
++server {
++	listen 80;
++	server_name journals.example.edu;
++	root /var/www/ojs;
++	index index.php;
++
++	client_max_body_size 64M;
++
++	location ~ ^/files/ { deny all; }
++
++	location / {
++		try_files $uri $uri/ /index.php?$query_string;
++	}
++
++	location ~ \.php$ {
++		include snippets/fastcgi-php.conf;
++		fastcgi_pass unix:/run/php/php8.3-fpm.sock; # коригирайте версията ако е различна
++		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
++		include fastcgi_params;
++	}
++
++	location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
++		expires 7d;
++		add_header Cache-Control "public";
++	}
+ 
+-Before obtaining certificates, ensure port 443 is open in the host firewall (Ubuntu example uses `ufw`):
+-
+-```bash
+-sudo ufw allow 'Nginx Full'   # opens 80 and 443 (or: sudo ufw allow 443/tcp)
+-sudo ufw status verbose
++	access_log /var/log/nginx/ojs.access.log;
++	error_log /var/log/nginx/ojs.error.log warn;
++}
+ ```
+ 
+-Confirm your Nginx site is enabled and syntax is valid:
++## 8. Права
++Ограничете до необходимите директории за запис.
+ 
+-```bash
+-sudo ln -s /etc/nginx/sites-available/ojs.conf /etc/nginx/sites-enabled/ || true
+-sudo nginx -t && sudo systemctl reload nginx
+-```
+-
+-Use certbot to obtain and install a certificate (production):
++## 9. Уеб инсталатор
++Отворете `http://journals.example.edu/` и попълнете формата.
+ 
++## 10. HTTPS
+ ```bash
++sudo apt install -y certbot python3-certbot-nginx
+ sudo certbot --nginx -d journals.example.edu --redirect --hsts --staple-ocsp --email admin@example.edu --agree-tos --no-eff-email
+ ```
+ 
+-If you want to test without hitting Let’s Encrypt rate limits, use the staging endpoint:
+-
+-```bash
+-sudo certbot --nginx -d journals.example.edu --staging --email admin@example@example.edu --agree-tos
+-```
+-
+-After successful issuance, verify HTTPS is working and port 443 is served by Nginx. Auto-renewal is handled by systemd timers; verify with:
+-
+-```bash
+-sudo systemctl list-timers | grep certbot
+-sudo certbot renew --dry-run
+-```
+-
+-Notes:
+-- If you use a different firewall (firewalld on RHEL) open port 443 accordingly.
+-- If certbot cannot update your Nginx config (uncommon), it will provide a JSON output and instructions; you can configure the `server` block manually to listen on 443 and include the certificate paths (`/etc/letsencrypt/live/.../fullchain.pem`).
+-
+ ---
+-> Prev: [Prerequisites](prerequisites.md) | Next: [Configuration](configuration.md) | Alt Path: [Installation (RHEL / AlmaLinux / Rocky)](install-rhel.md) | Index: [Document Index](../../README.md#reading-order-document-index) | BG: [Инсталация Ubuntu](../bg/install-ubuntu.md)
++> Назад: [Изисквания](prerequisites.md) | Следва: [Конфигурация](configuration.md) | Алтернативно: [Инсталация (RHEL / AlmaLinux / Rocky)](install-rhel.md) | Индекс: [Document Index](../../README.md#reading-order-document-index) | EN: [Ubuntu Installation](../en/install-ubuntu.md)

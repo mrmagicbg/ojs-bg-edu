@@ -33,7 +33,7 @@ smtp_server = smtp.university.edu
 smtp_port = 587
 smtp_auth = PLAIN
 smtp_username = no-reply@university.edu
-smtp_password = CHANGE_ME_SECURE_PASSWORD
+smtp_password = CHANGE_ME
 smtp_encryption = tls
 ```
 
@@ -53,4 +53,5 @@ crontab -u www-data -e
 Logrotate конфигурация според нуждите.
 
 ---
-> Назад: [Инсталация (RHEL)](install-rhel.md) | Следва: [Езикови пакети](language-packs.md) | Индекс: [Document Index](../../README.md#reading-order-document-index) | EN: [Configuration](../en/configuration.md)
+> Prev: [Installation (RHEL)](install-rhel.md) | Next: [Language Packs](language-packs.md) | Index: [Document Index](../../README.md#reading-order-document-index) | BG: [Конфигурация](../bg/configuration.md)
+

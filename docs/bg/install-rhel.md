@@ -1,6 +1,6 @@
 # Инсталация – RHEL / AlmaLinux / Rocky
 
-> Навигация: [Назад: Инсталация (Ubuntu)](install-ubuntu.md) | [Индекс](../../README.md#reading-order-document-index) | Следва: [Конфигурация](configuration.md) | EN: [RHEL Installation](../en/install-rhel.md)
+> Навигация: [Назад: Инсталация (Ubuntu)](install-ubuntu.md) | [Индекс](../../README.md#reading-order-document-index) | Следва: [Конфигурация](configuration.md) | Алтернативно: [Инсталация (Ubuntu)](install-ubuntu.md) | EN: [RHEL Installation](../en/install-rhel.md)
 
 Версия: 9.x
 
@@ -74,9 +74,9 @@ EXIT;
 ## 5. Redis
 ```bash
 sudo dnf install -y redis php-redis
-# Стартирайте и активирайте Redis. В RHEL услугата обикновено е `redis`,
-# докато в Debian/Ubuntu пакетът предоставя `redis-server.service` — може
-# да видите предупреждение за alias при активиране по alias име.
+# Start and enable Redis. On RHEL the service is commonly `redis` but on
+# Debian/Ubuntu the package provides `redis-server.service` — you may see
+# an alias-related warning when enabling by alias name.
 sudo systemctl enable --now redis
 ```
 
@@ -97,7 +97,54 @@ sudo chown -R ojs:ojs /var/www/ojs
 ```
 
 ## 8. Nginx конфигурация
-Сходна с Ubuntu.
+
+Създайте конфигурационния файл на сайта `/etc/nginx/conf.d/ojs.conf` (RHEL използва `conf.d/` вместо `sites-available/`):
+
+**Вариант 1 — Използвайте текстов редактор:**
+```bash
+sudo nano /etc/nginx/conf.d/ojs.conf
+# или
+sudo vim /etc/nginx/conf.d/ojs.conf
+```
+
+**Вариант 2 — Създайте с here-doc:**
+```bash
+sudo tee /etc/nginx/conf.d/ojs.conf > /dev/null <<'EOF'
+server {
+    listen 80;
+    server_name journals.example.edu;
+    root /var/www/ojs;
+    index index.php;
+
+    client_max_body_size 64M;
+
+    location ~ ^/files/ { deny all; }
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        include fastcgi_params;
+        fastcgi_pass unix:/run/php-fpm/www.sock;  # RHEL стандартен socket път
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
+        expires 7d;
+        add_header Cache-Control "public";
+    }
+
+    access_log /var/log/nginx/ojs.access.log;
+    error_log /var/log/nginx/ojs.error.log warn;
+}
+EOF
+```
+
+**Тествайте и презаредете Nginx:**
+```bash
+sudo nginx -t && sudo systemctl reload nginx
+```
 
 ## 9. SELinux контексти
 ```bash
@@ -120,4 +167,5 @@ sudo certbot --nginx -d journals.example.edu --redirect --hsts --staple-ocsp --e
 ```
 
 ---
-> Назад: [Инсталация (Ubuntu)](install-ubuntu.md) | Следва: [Конфигурация](configuration.md) | Индекс: [Document Index](../../README.md#reading-order-document-index) | EN: [RHEL Installation](../en/install-rhel.md)
+> Prev: [Installation (Ubuntu)](install-ubuntu.md) | Next: [Configuration](configuration.md) | Index: [Document Index](../../README.md#reading-order-document-index) | BG: [Инсталация RHEL](../bg/install-rhel.md)
+

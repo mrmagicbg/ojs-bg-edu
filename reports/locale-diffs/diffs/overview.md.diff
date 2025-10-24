@@ -1,0 +1,121 @@
+--- /home/mrmagic/Code/GitHub/mrmagicbg/ojs-bg-edu/docs/en/overview.md	2025-10-20 23:32:30.434859414 +0300
++++ /home/mrmagic/Code/GitHub/mrmagicbg/ojs-bg-edu/docs/bg/overview.md	2025-10-20 23:37:03.432455147 +0300
+@@ -1,62 +1,62 @@
+-# Open Journal Systems (OJS) Deployment Playbook – Overview
++# Наръчник за внедряване на Open Journal Systems (OJS) – Преглед
+ 
+-> Navigation: [Index](../../README.md#reading-order-document-index) | Next: [Prerequisites & Planning](prerequisites.md) | BG: [Обзор](../bg/overview.md)
++> Навигация: [Индекс](../../README.md#reading-order-document-index) | Следва: [Изисквания и планиране](prerequisites.md) | EN: [Overview](../en/overview.md)
+ 
+-Status: Draft (v0.1.0)
+-Target OJS Version: 3.5.0-1
++Статус: Чернова (v0.1.0)
++Целева версия на OJS: 3.5.0-1
+ 
+-This playbook provides a comprehensive, operations-oriented procedure to deploy and operate PKP's Open Journal Systems (OJS) with English and Bulgarian language support in a university (on‑prem or hybrid) environment.
++Този наръчник предоставя цялостна, операционна процедура за внедряване на Open Journal Systems (OJS) на PKP с поддръжка на английски и български език в университетска (on‑prem или хибридна) среда.
+ 
+-## Document Map
+-- prerequisites.md
+-- install-ubuntu.md
+-- install-rhel.md
+-- configuration.md
+-- language-packs.md
+-- security-hardening.md
+-- publishing-campus-network.md
+-- maintenance-upgrades.md
+-- backup-restore.md
+-- troubleshooting.md
+-- appendix-checklists.md
+-
+-## Supported Distributions
+-Primary: Ubuntu Server LTS (focus)
+-Secondary (notes only): Debian, RHEL / AlmaLinux / Rocky, openSUSE Leap
+-
+-## Roles & Audience
+-- System Administrator (Linux, network, security duties)
+-- Application Administrator (journal setup, plugin management)
+-- Database Administrator (optional split role)
+-- Local IT Security / Compliance Officer
+-
+-## High-Level Phases
+-1. Plan & prepare (capacity, DNS, certificates, backups)
+-2. Provision OS & baseline hardening
+-3. Install stack (Web server, PHP, DB, mail, caching, optional search)
+-4. Deploy OJS codebase & set file permissions
+-5. Run web installer (or CLI install if available)
+-6. Install and enable language packs (English + Bulgarian)
+-7. Post-install configuration (journals, email, security settings)
+-8. Publish service to campus / public internet
+-9. Operationalize (monitoring, logging, backup, patch cadence)
+-
+-## Key Architectural Choices
+-| Component | Recommended | Alternatives |
+-|-----------|-------------|--------------|
+-| Web Tier | Nginx + PHP-FPM | Apache (mod_php or php-fpm) |
+-| Database | MariaDB 10.11+ | MySQL 8.x, PostgreSQL 14+ |
+-| Cache | Redis (sessions, object cache) | APCu (local), Memcached |
+-| Search (optional) | ElasticSearch plugin | native MySQL fulltext |
+-| TLS | Let’s Encrypt (certbot) | University CA, reverse proxy offload |
+-
+-## Data Classification & Security
+-- Journal content may include unpublished manuscripts – treat as confidential.
+-- Ensure backups encrypted at rest and transported securely offsite.
+-
+-## Not in Scope (but referenced)
+-- OJS customization/theme development.
+-- Advanced editorial workflow training.
++## Карта на документите
++- prerequisites.md (предпоставки)
++- install-ubuntu.md (инсталация Ubuntu)
++- install-rhel.md (инсталация RHEL)
++- configuration.md (конфигурация)
++- language-packs.md (езикови пакети)
++- security-hardening.md (сигурност)
++- publishing-campus-network.md (публикуване в мрежата)
++- maintenance-upgrades.md (поддръжка и обновявания)
++- backup-restore.md (резервни копия и възстановяване)
++- troubleshooting.md (отстраняване на проблеми)
++- appendix-checklists.md (контролни списъци)
++
++## Поддържани дистрибуции
++Основна: Ubuntu Server LTS (фокус)
++Второстепенни (само бележки): Debian, RHEL / AlmaLinux / Rocky, openSUSE Leap
++
++## Роли и аудитория
++- Системен администратор
++- Администратор на приложението / списанията
++- База данни администратор (по избор)
++- Отговорник по сигурността / съответствие
++
++## Основни фази
++1. Планиране и подготовка
++2. Инсталиране на ОС и базово закаляване
++3. Инсталиране на стек (уеб сървър, PHP, БД, поща, кеш, търсене по избор)
++4. Деплой на OJS и права върху файлове
++5. Уеб инсталатор (или CLI ако наличен)
++6. Инсталиране и активиране на езикови пакети (en + bg)
++7. Пост-инсталационни настройки
++8. Публично публикуване
++9. Оперативна поддръжка (мониторинг, резервни копия, пачове)
++
++## Ключови архитектурни избори
++| Компонент | Препоръчан | Алтернативи |
++|-----------|-----------|-------------|
++| Уеб слой | Nginx + PHP-FPM | Apache |
++| База данни | MariaDB 10.11+ | MySQL 8.x, PostgreSQL 14+ |
++| Кеш | Redis | APCu, Memcached |
++| Търсене | ElasticSearch плъгин | MySQL fulltext |
++| TLS | Let’s Encrypt | Университет CA |
++
++## Класификация на данните
++- Непубликувани ръкописи – поверителни.
++- Резервни копия – криптирани при съхранение и трансфер.
++
++## Извън обхват
++- Дълбока персонализация и теми.
++- Детайлно обучение на редакторски процес.
+ 
+ ---
+-> Next: [Prerequisites & Planning](prerequisites.md) | Index: [Document Index](../../README.md#reading-order-document-index) | BG: [Обзор](../bg/overview.md)
++> Следва: [Изисквания и планиране](prerequisites.md) | Индекс: [Document Index](../../README.md#reading-order-document-index) | EN: [Overview](../en/overview.md)

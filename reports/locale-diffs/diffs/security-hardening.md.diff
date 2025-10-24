@@ -1,0 +1,104 @@
+--- /home/mrmagic/Code/GitHub/mrmagicbg/ojs-bg-edu/docs/en/security-hardening.md	2025-10-20 23:32:31.143863557 +0300
++++ /home/mrmagic/Code/GitHub/mrmagicbg/ojs-bg-edu/docs/bg/security-hardening.md	2025-10-20 23:32:31.549865930 +0300
+@@ -1,76 +1,40 @@
+-# Security Hardening
++# Закаляване на сигурността
+ 
+-> Navigation: [Prev: Language Packs](language-packs.md) | [Index](../../README.md#reading-order-document-index) | Next: [Publishing (Campus / Internet)](publishing-campus-network.md) | BG: [Сигурност](../bg/security-hardening.md)
++> Навигация: [Назад: Езикови пакети](language-packs.md) | [Индекс](../../README.md#reading-order-document-index) | Следва: [Публикуване](publishing-campus-network.md) | EN: [Security Hardening](../en/security-hardening.md)
+ 
+-## 1. Principle of Least Privilege
+-- DB user limited to OJS schema.
+-- Separate system user `ojs` with no shell.
+-
+-## 2. File System
+-- Keep `files_dir` outside web root.
+-- Restrict write permissions to required dirs only.
+-- Remove `docs/` or restrict via web server.
++## 1. Права
++Минимални привилегии за БД и системния потребител.
++
++## 2. Файлова система
++`files_dir` извън web root. Ограничени права.
+ 
+ ## 3. TLS
+-- Enforce strong ciphers (Mozilla intermediate). Example Nginx snippet:
+-```
+-ssl_protocols TLSv1.2 TLSv1.3;
+-ssl_ciphers 'TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256';
+-ssl_prefer_server_ciphers off;
+-```
++Силни шифри, HTTP/2, HSTS.
+ 
+-## 4. HTTP Headers
+-Add to Nginx server block:
++## 4. Заглавки
+ ```
+-add_header X-Frame-Options SAMEORIGIN;
+-add_header X-Content-Type-Options nosniff;
+-add_header Referrer-Policy strict-origin-when-cross-origin;
+-add_header X-XSS-Protection "1; mode=block";
+-add_header Content-Security-Policy "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: https:;";
++X-Frame-Options SAMEORIGIN
++X-Content-Type-Options nosniff
++Referrer-Policy strict-origin-when-cross-origin
+ ```
+-Adjust CSP once assets audited (reduce 'unsafe-inline').
+ 
+ ## 5. PHP
+-Disable dangerous functions if not needed:
+-```
+-disable_functions = exec,passthru,shell_exec,system,proc_open,popen
+-```
+-Monitor for plugin requirements before disabling.
++Деактивирайте опасни функции ако не се ползват.
+ 
+-## 6. Database
+-- Enforce utf8mb4.
+-- Regular dumps with `--single-transaction`.
+-- Restrict network access (bind 127.0.0.1 if local).
+-
+-## 7. Authentication
+-- Enforce strong admin password policy.
+-- Consider SSO (Shibboleth / LDAP) integration for campus (plugin dependent).
+-
+-## 8. Monitoring & Alerts
+-Metrics to collect:
+-- Nginx: req/sec, 4xx/5xx
+-- PHP-FPM: slow logs
+-- DB: slow queries
+-- Disk usage of `/var/ojs-files`
++## 6. БД
++utf8mb4, ограничен достъп по мрежата.
+ 
+-## 9. Fail2ban
+-Create filter for repeated login failures (sample regex depends on OJS log format). Example jail config snippet:
+-```
+-[ojs-auth]
+-enabled = true
+-port    = http,https
+-filter  = ojs-auth
+-logpath = /var/log/nginx/ojs.access.log
+-maxretry = 5
+-findtime = 600
+-bantime  = 3600
+-```
++## 7. Автентикация
++Силни пароли, евентуално LDAP/SSO.
+ 
+-## 10. Backups Integrity
+-Monthly restore test in isolated environment.
++## 8. Мониторинг
++Nginx, PHP-FPM, DB, дисково пространство.
++
++## 9. Fail2ban
++Jail за уеб входове.
+ 
+-## 11. Upgrades
+-Track OJS security advisories (subscribe to PKP mailing list / RSS). Apply minor updates promptly.
++## 10. Резервни копия
++Периодични тестове за възстановяване.
+ 
+ ---
+-> Prev: [Language Packs](language-packs.md) | Next: [Publishing (Campus / Internet)](publishing-campus-network.md) | Index: [Document Index](../../README.md#reading-order-document-index) | BG: [Сигурност](../bg/security-hardening.md)
++> Назад: [Езикови пакети](language-packs.md) | Следва: [Публикуване](publishing-campus-network.md) | Индекс: [Document Index](../../README.md#reading-order-document-index) | EN: [Security Hardening](../en/security-hardening.md)

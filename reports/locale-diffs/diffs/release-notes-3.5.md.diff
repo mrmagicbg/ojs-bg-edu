@@ -1,0 +1,95 @@
+--- /home/mrmagic/Code/GitHub/mrmagicbg/ojs-bg-edu/docs/en/release-notes-3.5.md	2025-10-20 23:37:43.032686652 +0300
++++ /home/mrmagic/Code/GitHub/mrmagicbg/ojs-bg-edu/docs/bg/release-notes-3.5.md	2025-10-20 23:37:43.081686939 +0300
+@@ -1,50 +1,49 @@
+-# OJS 3.5 Release Notes (Summary)
++# Бележки по пускане OJS 3.5 (резюме)
+ 
+-> Navigation: [Prev: Checklists](appendix-checklists.md) | [Index](../../README.md#reading-order-document-index) | BG: [Бележки по пускане 3.5](../bg/release-notes-3.5.md)
++> Навигация: [Назад: Контролни списъци](appendix-checklists.md) | [Индекс](../../README.md#reading-order-document-index) | EN: [Release Notes 3.5](../en/release-notes-3.5.md)
+ 
+-Source: Adapted summary referencing PKP 3.5 Release Notebook (https://docs.pkp.sfu.ca/dev/release-notebooks/en/3.5-release-notebook). Always consult the official notebook for authoritative detail. This summary is provided under the same GPL v3 terms as OJS with attribution to PKP. Bulgarian translation is non-authoritative.
++Източник: Обобщение на основата на официалния PKP 3.5 Release Notebook (https://docs.pkp.sfu.ca/dev/release-notebooks/en/3.5-release-notebook). За пълни детайли използвайте оригинала. Българският превод е неофициален и не е авторитетен. Това резюме е с атрибуция към PKP.
+ 
+-## Highlights
+-- Modernized UI refinements and accessibility improvements.
+-- Workflow enhancements: refined submission handling, improved editorial dashboards.
+-- Plugin ecosystem updates with compatibility adjustments for PHP 8.2.
+-- Performance optimizations in caching and query handling.
+-- Security hardening patches and dependency updates.
+-
+-## Technical / Platform
+-| Area | Change (Summary) |
+-|------|------------------|
+-| PHP Support | Official testing with PHP 8.2; older unsupported versions deprecated. |
+-| DB Layer | Continued emphasis on utf8mb4; minor schema migrations applied. |
+-| Caching | Better optional Redis/APCu integration patterns (requires plugin/version validation). |
+-
+-## Editorial & Workflow
+-- Streamlined submission metadata editing forms.
+-- Clearer locale handling in multilingual submissions.
+-
+-## Accessibility
+-- Improved ARIA labels and heading hierarchy.
+-- Color contrast adjustments in default theme.
+-
+-## Localization
+-- Updated base translation strings; Bulgarian pack may need incremental community contributions for newly introduced keys.
+-
+-## Upgrade Notes
+-1. Backup database and files directory.
+-2. Replace code with 3.5.0-1 package.
+-3. Run upgrade script (see maintenance guide).
+-4. Clear caches and review logs.
+-
+-## Post-Upgrade Checklist
+-- Verify plugins compatibility (disable outdated ones).
+-- Rebuild search index if required by plugin changes.
+-- Confirm email templates & locale customizations.
++## Акценти
++- Подобрения в UI и достъпност.
++- Оптимизации в работния поток и редакторските табла.
++- Актуализации на плъгин екосистемата и съвместимост с PHP 8.2.
++- Подобрена производителност (кеш, заявки).
++- Пачове за сигурност и зависимости.
++
++## Технически
++| Област | Промяна |
++|--------|---------|
++| PHP | Тестване с PHP 8.2; по-стари версии отпадат |
++| БД | Фокус върху utf8mb4; малки миграции |
++| Кеш | По-добри модели за Redis/APCu (валидирайте плъгини) |
++
++## Редакционни Подобрения
++- По-ясни форми за метаданни.
++- По-добро управление на локалите при многоезични подавания.
++
++## Достъпност
++- ARIA етикети и контраст.
++
++## Локализация
++- Обновени низове; българският пакет може да изисква нови допълнения.
++
++## Стъпки за Ъпгрейд
++1. Backup (БД + файлове).
++2. Заменете кода с пакет 3.5.0-1.
++3. Стартирайте upgrade script.
++4. Изчистете cache и проверете логове.
++
++## След Ъпгрейд
++- Проверка съвместимост на плъгини.
++- Престрояване на индекс при нужда.
++- Проверка имейл шаблони.
+ 
+-## Contributing Translations
+-Submit updated locale strings upstream to PKP to ensure Bulgarian improvements propagate. Always verify release archive SHA256 checksums from official PKP sources before upgrade.
++## Преводи
++Подобренията в преводите изпращайте upstream към PKP. Винаги проверявайте SHA256 сумите на архивите от официален PKP източник преди ъпгрейд.
+ 
+-## Attribution
+-Open Journal Systems (OJS) © Public Knowledge Project (PKP). Summary prepared for deployment playbook (this repository).
++## Атрибуция
++Open Journal Systems (OJS) © PKP. Резюме, подготвено за този наръчник.
+ 
+ ---
+-> Prev: [Checklists](appendix-checklists.md) | Index: [Document Index](../../README.md#reading-order-document-index) | BG: [Бележки по пускане 3.5](../bg/release-notes-3.5.md)
++> Назад: [Контролни списъци](appendix-checklists.md) | Индекс: [Document Index](../../README.md#reading-order-document-index) | EN: [Release Notes 3.5](../en/release-notes-3.5.md)
