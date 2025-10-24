@@ -17,7 +17,7 @@ sudo dnf module reset php -y
 sudo dnf module enable php:8.2 -y
 sudo dnf install -y nginx php php-fpm php-mysqlnd php-xml php-gd php-curl php-mbstring php-zip php-intl php-ldap php-imagick php-json php-opcache php-bcmath php-gmp policycoreutils-python-utils firewalld
 ```
-Start services:
+Start services (Note: On RHEL, the service is typically `php-fpm` without version number):
 ```bash
 sudo systemctl enable --now nginx php-fpm firewalld
 ```

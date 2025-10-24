@@ -52,7 +52,10 @@ Nginx:
 worker_processes auto;
 worker_connections 4096;
 ```
-PHP-FPM pool adjustments (`/etc/php/*/fpm/pool.d/www.conf`):
+PHP-FPM pool adjustments:
+- Ubuntu/Debian: `/etc/php/8.3/fpm/pool.d/www.conf`
+- RHEL: `/etc/php-fpm.d/www.conf`
+
 ```
 pm = dynamic
 pm.max_children = 20
@@ -61,6 +64,7 @@ pm.min_spare_servers = 5
 pm.max_spare_servers = 10
 ```
 Adjust based on RAM (rough rule: (RAM_for_PHP / avg_child_mem)).
+After changes: `sudo systemctl reload php8.3-fpm` (Ubuntu) or `sudo systemctl reload php-fpm` (RHEL)
 
 ## 8. Logging & Analytics
 Enable access logs; feed into central system. Respect privacy regulations.

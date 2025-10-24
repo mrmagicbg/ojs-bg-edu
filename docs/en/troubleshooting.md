@@ -15,15 +15,17 @@
 
 ## 2. Logs Locations
 - Nginx: `/var/log/nginx/ojs.error.log`
-- PHP-FPM: `/var/log/php*-fpm.log` or journalctl
+- PHP-FPM: `/var/log/php8.3-fpm.log` (Ubuntu/Debian with version) or `journalctl -u php8.3-fpm`
+  - On RHEL: `/var/log/php-fpm/` or `journalctl -u php-fpm`
 - OJS application logs: `cache/` or `files/usageStats/` (depending on feature)
 
 ## 3. Increase Verbosity
-Enable display_errors temporarily (dev only). Use PHP-FPM slow log:
+Enable display_errors temporarily (dev only). Use PHP-FPM slow log in pool config (`/etc/php/8.3/fpm/pool.d/www.conf` on Ubuntu or `/etc/php-fpm.d/www.conf` on RHEL):
 ```
 request_slowlog_timeout = 5s
-slowlog = /var/log/php-fpm/slow.log
+slowlog = /var/log/php8.3-fpm/slow.log
 ```
+Reload: `sudo systemctl reload php8.3-fpm` (or `php-fpm` on RHEL)
 
 ## 4. Database Diagnostics
 ```sql

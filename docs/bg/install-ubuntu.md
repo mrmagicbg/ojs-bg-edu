@@ -23,6 +23,10 @@ post_max_size = 64M
 upload_max_filesize = 64M
 max_execution_time = 120
 ```
+Презареждане (заменете `8.3` с Вашата PHP версия):
+```bash
+sudo systemctl reload php8.3-fpm
+```
 
 ## 3. База данни (MariaDB)
 ```bash
