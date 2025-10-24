@@ -28,9 +28,9 @@ max_input_vars = 3000
 opcache.enable=1
 opcache.memory_consumption=128
 ```
-Reload:
+Reload (replace `8.3` with your PHP version):
 ```bash
-sudo systemctl reload php-fpm
+sudo systemctl reload php8.3-fpm
 ```
 
 ## 3. Install Database (MariaDB)
@@ -103,7 +103,7 @@ server {
 
     location ~ \.php$ {
         include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/run/php/php-fpm.sock; # confirm path
+        fastcgi_pass unix:/run/php/php8.3-fpm.sock; # adjust version (8.1, 8.2, 8.3)
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         include fastcgi_params;
     }

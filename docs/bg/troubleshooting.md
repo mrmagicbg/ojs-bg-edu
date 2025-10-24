@@ -10,10 +10,18 @@
 | Липсва разширение | Fatal error | Инсталирайте PHP модул |
 
 ## 2. Логове
-Nginx, PHP-FPM, вътрешни логове.
+- Nginx: `/var/log/nginx/ojs.error.log`
+- PHP-FPM: `/var/log/php8.3-fpm.log` (Ubuntu/Debian) или `journalctl -u php8.3-fpm`
+  - На RHEL: `/var/log/php-fpm/` или `journalctl -u php-fpm`
+- OJS логове: `cache/` или `files/usageStats/`
 
 ## 3. Повече детайли
-Slow log, включване на временни debug настройки.
+Slow log в конфигурацията на pool (`/etc/php/8.3/fpm/pool.d/www.conf` Ubuntu или `/etc/php-fpm.d/www.conf` RHEL):
+```
+request_slowlog_timeout = 5s
+slowlog = /var/log/php8.3-fpm/slow.log
+```
+Презареждане: `sudo systemctl reload php8.3-fpm` (или `php-fpm` на RHEL)
 
 ## 4. БД диагностика
 `SHOW PROCESSLIST;`

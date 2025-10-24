@@ -16,6 +16,10 @@ sudo dnf module reset php -y
 sudo dnf module enable php:8.2 -y
 sudo dnf install -y nginx php php-fpm php-mysqlnd php-xml php-gd php-curl php-mbstring php-zip php-intl php-ldap php-imagick php-json php-opcache php-bcmath php-gmp policycoreutils-python-utils firewalld
 ```
+Стартиране на услугите (Забележка: В RHEL услугата обикновено е `php-fpm` без номер на версията):
+```bash
+sudo systemctl enable --now nginx php-fpm firewalld
+```
 
 ## 3. SELinux
 Оставете Enforcing. Настройте контексти за записваеми директории.

@@ -21,7 +21,11 @@ Let’s Encrypt или институционален CA.
 Споделен `files_dir`, централизирани сесии.
 
 ## 7. Производителност
-Тунинг на Nginx и PHP-FPM.
+Тунинг на Nginx и PHP-FPM pool:
+- Ubuntu/Debian: `/etc/php/8.3/fpm/pool.d/www.conf`
+- RHEL: `/etc/php-fpm.d/www.conf`
+
+След промени: `sudo systemctl reload php8.3-fpm` (Ubuntu) или `sudo systemctl reload php-fpm` (RHEL)
 
 ## 8. Логове
 Централизиране и анализ.
