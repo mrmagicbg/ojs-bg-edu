@@ -81,6 +81,29 @@ EXIT;
 sudo apt install -y redis-server php-redis
 ```
 
+Забележка за възможно безвредно предупреждение:
+
+Ако видите грешка като:
+
+```
+Failed to enable unit: Refusing to operate on alias name or linked unit file: redis.service
+```
+обикновено означава, че alias (`redis.service`) сочи към реалната услуга
+(`redis-server.service`). Пакетът често вече е активирал каноничната
+услуга и съобщението може да се игнорира. За да проверите и (повторно)
+активирате реалната услуга, изпълнете:
+
+```bash
+systemctl list-unit-files | grep -i redis
+sudo systemctl status redis-server.service
+sudo systemctl enable --now redis-server.service
+sudo systemctl restart redis-server.service   # приложете supervised промяната
+redis-cli ping  # трябва да върне PONG
+```
+
+Ако `redis-cli ping` върне `PONG`, Redis работи и е готов за употреба.
+```
+
 ## 5. Потребител и директории
 ```bash
 sudo adduser --system --group --home /var/www/ojs ojs

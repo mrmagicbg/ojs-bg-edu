@@ -85,9 +85,34 @@ EXIT;
 ```bash
 sudo apt install -y redis-server
 sudo sed -i 's/^supervised no/supervised systemd/' /etc/redis/redis.conf
-sudo systemctl enable --now redis
+# Enable and start the canonical Redis unit. On Ubuntu the service is
+# typically `redis-server.service` (the package may also create an alias
+# `redis.service` which can cause a benign warning when enabling the alias).
+sudo systemctl enable --now redis-server.service
 ```
 PHP extension (if not already): `sudo apt install -y php-redis`
+
+Note about a possible harmless warning:
+
+If you see an error like:
+
+```
+Failed to enable unit: Refusing to operate on alias name or linked unit file: redis.service
+```
+this usually means an alias (`redis.service`) points to the real unit
+(`redis-server.service`). The package often already enabled the canonical
+unit and the message can be ignored. To verify and (re)enable the real
+unit, run:
+
+```bash
+systemctl list-unit-files | grep -i redis
+sudo systemctl status redis-server.service
+sudo systemctl enable --now redis-server.service
+sudo systemctl restart redis-server.service   # apply supervised change
+redis-cli ping  # should return PONG
+```
+
+If `redis-cli ping` returns `PONG`, Redis is running and ready to use.
 
 ## 6. Create OJS System User & Directories
 ```bash
