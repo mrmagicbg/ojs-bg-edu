@@ -51,6 +51,12 @@ sudo mysql_secure_installation
 - `Remove test database and access to it? [Y/n]`: **Y**
 - `Reload privilege tables now? [Y/n]`: **Y**
 
+> **⚠️ CRITICAL SECURITY WARNING:**
+> **REPLACE `CHANGE_ME_STRONG_PASSWORD` WITH A STRONG, UNIQUE PASSWORD!**
+> Use at least 20+ characters with uppercase, lowercase, numbers, and symbols.
+> Generate one with: `openssl rand -base64 32`
+> **Store this password securely** - you'll need it in `config.inc.php` later.
+
 Create database & user (access SQL shell first):
 ```bash
 sudo mysql -u root -p
@@ -63,12 +69,6 @@ GRANT ALL PRIVILEGES ON ojs.* TO 'ojs'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
 ```
-
-> **⚠️ CRITICAL SECURITY WARNING:**
-> **REPLACE `CHANGE_ME_STRONG_PASSWORD` WITH A STRONG, UNIQUE PASSWORD!**
-> Use at least 20+ characters with uppercase, lowercase, numbers, and symbols.
-> Generate one with: `openssl rand -base64 32`
-> **Store this password securely** - you'll need it in `config.inc.php` later.
 
 **To change the OJS database user password later:**
 ```sql
