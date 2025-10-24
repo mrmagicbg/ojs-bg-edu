@@ -1,0 +1,20 @@
+Locale diff report: /home/mrmagic/Code/GitHub/mrmagicbg/ojs-bg-edu/reports/locale-diffs
+
+English files scanned: 14
+Bulgarian files scanned: 14
+
+Files that differ (14). Unified diffs saved to /home/mrmagic/Code/GitHub/mrmagicbg/ojs-bg-edu/reports/locale-diffs/diffs/
+- language-packs.md -> diffs/language-packs.md.diff
+- backup-restore.md -> diffs/backup-restore.md.diff
+- publishing-campus-network.md -> diffs/publishing-campus-network.md.diff
+- version-matrix.md -> diffs/version-matrix.md.diff
+- configuration.md -> diffs/configuration.md.diff
+- release-notes-3.5.md -> diffs/release-notes-3.5.md.diff
+- install-ubuntu.md -> diffs/install-ubuntu.md.diff
+- appendix-checklists.md -> diffs/appendix-checklists.md.diff
+- prerequisites.md -> diffs/prerequisites.md.diff
+- security-hardening.md -> diffs/security-hardening.md.diff
+- overview.md -> diffs/overview.md.diff
+- troubleshooting.md -> diffs/troubleshooting.md.diff
+- maintenance-upgrades.md -> diffs/maintenance-upgrades.md.diff
+- install-rhel.md -> diffs/install-rhel.md.diff
