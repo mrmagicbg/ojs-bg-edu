@@ -16,6 +16,7 @@ cache/
 .DS_Store
 .idea/
 .vscode/
+reports/locale-diffs/
 # Backup & dump files
 *.sql
 *.sql.gz
