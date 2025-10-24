@@ -54,6 +54,23 @@ FLUSH PRIVILEGES;
 EXIT;
 ```
 
+> **⚠️ КРИТИЧНО ВАЖНО ЗА СИГУРНОСТТА:**
+> **ЗАМЕНЕТЕ `STRONG_PASSWORD_CHANGE_ME` СЪС СИЛНА, УНИКАЛНА ПАРОЛА!**
+> Използвайте поне 20+ символа с главни, малки букви, цифри и специални символи.
+> Генерирайте с: `openssl rand -base64 32`
+> **Съхранете паролата сигурно** - ще Ви трябва в `config.inc.php` по-късно.
+
+**За промяна на паролата на OJS потребителя по-късно:**
+```sql
+-- Влезте като root
+sudo mysql -u root -p
+
+-- Променете паролата
+ALTER USER 'ojs'@'localhost' IDENTIFIED BY 'НОВА_СИЛНА_ПАРОЛА';
+FLUSH PRIVILEGES;
+EXIT;
+```
+
 ## 5. Redis
 ```bash
 sudo dnf install -y redis php-redis
