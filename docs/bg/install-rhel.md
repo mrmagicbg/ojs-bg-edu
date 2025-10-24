@@ -14,7 +14,7 @@ sudo dnf install -y epel-release dnf-plugins-core
 ```bash
 sudo dnf module reset php -y
 sudo dnf module enable php:8.2 -y
-sudo dnf install -y nginx php php-fpm php-mysqlnd php-xml php-gd php-curl php-mbstring php-zip php-intl php-ldap php-imagick php-json php-opcache php-bcmath php-gmp policycoreutils-python-utils firewalld
+sudo dnf install -y nginx php php-fpm php-mysqlnd php-xml php-gd php-curl php-mbstring php-zip php-intl php-ldap php-imagick php-json php-opcache php-bcmath php-gmp php-redis policycoreutils-python-utils firewalld
 ```
 Стартиране на услугите (Забележка: В RHEL услугата обикновено е `php-fpm` без номер на версията):
 ```bash

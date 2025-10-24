@@ -13,7 +13,7 @@ sudo apt install -y software-properties-common curl gnupg lsb-release ca-certifi
 
 ## 2. Уеб и PHP (Nginx + PHP-FPM)
 ```bash
-sudo apt install -y nginx php-fpm php-cli php-mysql php-xml php-gd php-curl php-mbstring php-zip php-intl php-ldap php-imagick php-xmlrpc php-soap php-json php-opcache php-bcmath php-gmp
+sudo apt install -y nginx php-fpm php-cli php-mysql php-xml php-gd php-curl php-mbstring php-zip php-intl php-ldap php-imagick php-xmlrpc php-soap php-json php-opcache php-bcmath php-gmp php-redis
 ```
 Корекции в `/etc/php/*/fpm/php.ini` (пример):
 ```

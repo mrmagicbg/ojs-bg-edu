@@ -18,7 +18,7 @@
 - [ ] Web server configured
 - [ ] PHP modules installed
 - [ ] DB created
-- [ ] Redis running
+- [ ] Redis running (verify with `redis-cli ping` → should return `PONG`)
 - [ ] OJS code deployed
 
 ## D. Install & Config
