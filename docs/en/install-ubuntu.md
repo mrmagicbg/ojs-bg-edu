@@ -37,25 +37,31 @@ sudo systemctl reload php8.3-fpm
 ```bash
 sudo apt install -y mariadb-server mariadb-client
 sudo systemctl enable --now mariadb
+```
+
+Secure the installation:
+```bash
 sudo mysql_secure_installation
 ```
-Create database & user:
+**Recommended answers:**
+- `Switch to unix_socket authentication [Y/n]`: **n** (already protected on Ubuntu)
+- `Change the root password? [Y/n]`: **n** (if already set, otherwise **Y**)
+- `Remove anonymous users? [Y/n]`: **Y**
+- `Disallow root login remotely? [Y/n]`: **Y**
+- `Remove test database and access to it? [Y/n]`: **Y**
+- `Reload privilege tables now? [Y/n]`: **Y**
+
+Create database & user (access SQL shell first):
+```bash
+sudo mysql -u root -p
+```
+Then run:
 ```sql
 CREATE DATABASE ojs CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 CREATE USER 'ojs'@'localhost' IDENTIFIED BY 'CHANGE_ME_STRONG_PASSWORD';
 GRANT ALL PRIVILEGES ON ojs.* TO 'ojs'@'localhost';
 FLUSH PRIVILEGES;
-```
-Access SQL shell:
-```bash
-sudo mysql -u root -p
-```
-
-## 4. (Optional) PostgreSQL
-```bash
-sudo apt install -y postgresql postgresql-contrib
-sudo -u postgres createuser -P ojs
-sudo -u postgres createdb -O ojs ojs -E UTF8
+EXIT;
 ```
 
 ## 5. Redis (Sessions / Cache)

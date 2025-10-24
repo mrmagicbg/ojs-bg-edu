@@ -32,14 +32,31 @@ sudo systemctl reload php8.3-fpm
 ```bash
 sudo apt install -y mariadb-server mariadb-client
 sudo systemctl enable --now mariadb
+```
+
+Защита на инсталацията:
+```bash
 sudo mysql_secure_installation
 ```
-SQL:
+**Препоръчани отговори:**
+- `Switch to unix_socket authentication [Y/n]`: **n** (вече защитен на Ubuntu)
+- `Change the root password? [Y/n]`: **n** (ако вече е зададена, иначе **Y**)
+- `Remove anonymous users? [Y/n]`: **Y**
+- `Disallow root login remotely? [Y/n]`: **Y**
+- `Remove test database and access to it? [Y/n]`: **Y**
+- `Reload privilege tables now? [Y/n]`: **Y**
+
+Създаване на база данни и потребител (първо влезте в SQL):
+```bash
+sudo mysql -u root -p
+```
+След това изпълнете:
 ```sql
 CREATE DATABASE ojs CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 CREATE USER 'ojs'@'localhost' IDENTIFIED BY 'STRONG_PASSWORD_CHANGE_ME';
 GRANT ALL PRIVILEGES ON ojs.* TO 'ojs'@'localhost';
 FLUSH PRIVILEGES;
+EXIT;
 ```
 
 ## 4. Redis

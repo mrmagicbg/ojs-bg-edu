@@ -29,9 +29,31 @@ Keep SELinux enforcing. Later adjust contexts for writable dirs.
 ```bash
 sudo dnf install -y mariadb-server
 sudo systemctl enable --now mariadb
+```
+
+Secure the installation:
+```bash
 sudo mysql_secure_installation
 ```
-SQL (same as Ubuntu guide).
+**Recommended answers:**
+- `Switch to unix_socket authentication [Y/n]`: **n** (already protected)
+- `Change the root password? [Y/n]`: **n** (if already set, otherwise **Y**)
+- `Remove anonymous users? [Y/n]`: **Y**
+- `Disallow root login remotely? [Y/n]`: **Y**
+- `Remove test database and access to it? [Y/n]`: **Y**
+- `Reload privilege tables now? [Y/n]`: **Y**
+
+Create database & user:
+```bash
+sudo mysql -u root -p
+```
+```sql
+CREATE DATABASE ojs CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'ojs'@'localhost' IDENTIFIED BY 'CHANGE_ME_STRONG_PASSWORD';
+GRANT ALL PRIVILEGES ON ojs.* TO 'ojs'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+```
 
 ## 5. Redis
 ```bash
