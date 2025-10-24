@@ -64,6 +64,23 @@ FLUSH PRIVILEGES;
 EXIT;
 ```
 
+> **⚠️ CRITICAL SECURITY WARNING:**
+> **REPLACE `CHANGE_ME_STRONG_PASSWORD` WITH A STRONG, UNIQUE PASSWORD!**
+> Use at least 20+ characters with uppercase, lowercase, numbers, and symbols.
+> Generate one with: `openssl rand -base64 32`
+> **Store this password securely** - you'll need it in `config.inc.php` later.
+
+**To change the OJS database user password later:**
+```sql
+-- Access MySQL as root
+sudo mysql -u root -p
+
+-- Change password
+ALTER USER 'ojs'@'localhost' IDENTIFIED BY 'NEW_STRONG_PASSWORD';
+FLUSH PRIVILEGES;
+EXIT;
+```
+
 ## 5. Redis (Sessions / Cache)
 ```bash
 sudo apt install -y redis-server
