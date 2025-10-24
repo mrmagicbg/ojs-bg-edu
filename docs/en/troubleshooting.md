@@ -48,5 +48,32 @@ status=$(curl -k -o /dev/null -s -w "%{http_code}" "$URL")
 [[ "$status" == "200" ]] || echo "Health check failed: $status" >&2
 ```
 
+## 7. Redis systemd alias warning
+
+Sometimes package installers create an alias unit (e.g. `redis.service`) that
+points to the real unit (`redis-server.service`). If you enable using the
+alias name you may see this message:
+
+```
+Failed to enable unit: Refusing to operate on alias name or linked unit file: redis.service
+```
+
+This is usually harmless — the package typically enabled the canonical unit
+already. To verify Redis is active and enabled, run:
+
+```bash
+systemctl list-unit-files | grep -i redis
+sudo systemctl status redis-server.service
+sudo systemctl is-enabled redis-server.service || sudo systemctl enable --now redis-server.service
+sudo systemctl restart redis-server.service   # apply config changes
+redis-cli ping   # should return PONG
+```
+
+If the canonical unit is active (status shows `Active: active (running)`)
+and `redis-cli ping` returns `PONG`, Redis is functioning correctly and the
+alias warning can be ignored. If Redis is not running, follow the enable/
+start/reload sequence above and inspect `journalctl -u redis-server` for
+errors.
+
 ---
 > Prev: [Backup & Restore](backup-restore.md) | Next: [Checklists](appendix-checklists.md) | Index: [Document Index](../../README.md#reading-order-document-index) | BG: [Отстраняване на проблеми](../bg/troubleshooting.md)

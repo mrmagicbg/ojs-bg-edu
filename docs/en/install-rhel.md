@@ -75,6 +75,9 @@ EXIT;
 ## 5. Redis
 ```bash
 sudo dnf install -y redis php-redis
+# Start and enable Redis. On RHEL the service is commonly `redis` but on
+# Debian/Ubuntu the package provides `redis-server.service` — you may see
+# an alias-related warning when enabling by alias name.
 sudo systemctl enable --now redis
 ```
 
