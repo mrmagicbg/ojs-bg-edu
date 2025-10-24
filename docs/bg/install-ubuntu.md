@@ -46,6 +46,12 @@ sudo mysql_secure_installation
 - `Remove test database and access to it? [Y/n]`: **Y**
 - `Reload privilege tables now? [Y/n]`: **Y**
 
+> **⚠️ КРИТИЧНО ВАЖНО ЗА СИГУРНОСТТА:**
+> **ЗАМЕНЕТЕ `STRONG_PASSWORD_CHANGE_ME` СЪС СИЛНА, УНИКАЛНА ПАРОЛА!**
+> Използвайте поне 20+ символа с главни, малки букви, цифри и специални символи.
+> Генерирайте с: `openssl rand -base64 32`
+> **Съхранете паролата сигурно** - ще Ви трябва в `config.inc.php` по-късно.
+
 Създаване на база данни и потребител (първо влезте в SQL):
 ```bash
 sudo mysql -u root -p
@@ -58,12 +64,6 @@ GRANT ALL PRIVILEGES ON ojs.* TO 'ojs'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
 ```
-
-> **⚠️ КРИТИЧНО ВАЖНО ЗА СИГУРНОСТТА:**
-> **ЗАМЕНЕТЕ `STRONG_PASSWORD_CHANGE_ME` СЪС СИЛНА, УНИКАЛНА ПАРОЛА!**
-> Използвайте поне 20+ символа с главни, малки букви, цифри и специални символи.
-> Генерирайте с: `openssl rand -base64 32`
-> **Съхранете паролата сигурно** - ще Ви трябва в `config.inc.php` по-късно.
 
 **За промяна на паролата на OJS потребителя по-късно:**
 ```sql
