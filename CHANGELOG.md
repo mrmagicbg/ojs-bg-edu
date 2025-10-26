@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.1] - 2025-10-26
+### Added
+- Added "Theme and visual improvements" section to the configuration guides (English and Bulgarian). The new section documents available PKP and commercial themes, step-by-step instructions to install/enable themes for sites such as `fket.vtu.bg`, and UI recommendations (favicons, custom CSS, Google Fonts, mobile checks).
+
 ## [0.3.0] - 2025-10-24
 ### Added
 - Explicit step-by-step instructions for creating/editing `/etc/nginx/sites-available/ojs.conf` (Ubuntu) and `/etc/nginx/conf.d/ojs.conf` (RHEL) in all install docs (EN & BG).
