@@ -19,6 +19,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 ### Fixed
 - Structural parity between English and Bulgarian install documentation (configuration.md, install-rhel.md synchronized).
 
+## [0.3.2] - 2025-11-30
+### Changed
+- Documentation cleanup and last-updated timestamps added to top-level README.
+
 ## [0.2.0] - 2025-10-20
 ### Added
 - Initial repository scaffold: documentation structure (en, bg), licensing placeholders, installation and operations guides (drafts), localization resources for English/Bulgarian.

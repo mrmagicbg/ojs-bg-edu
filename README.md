@@ -141,3 +141,7 @@ Exclude root bilingual files (README, LICENSE, CONTRIBUTING, CODE_OF_CONDUCT):
 ```bash
 ./scripts/export-pdf.sh --no-root
 ```
+
+---
+
+**Last updated:** 2025-11-30
