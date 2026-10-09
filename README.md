@@ -48,8 +48,13 @@ See the consolidated [LICENSE](LICENSE) for details.
 ## Contributing
 Draft improvements via pull request. For Bulgarian translation fixes, edit the corresponding `docs/bg` file and keep English in sync where structural changes occur.
 
+## Maintenance scripts
+- `scripts/diff_locales.sh` – compares `docs/en` and `docs/bg`, reports files missing on either side and writes diffs to `reports/locale-diffs/` (gitignored).
+- `scripts/sync_structure.py` – copies EN blockquote blocks (navigation/notes) into the matching BG files to keep structural parity; prints the BG files it modified.
+- `scripts/export-pdf.sh` – PDF export, see below.
+
 ## Change Log
-See `CHANGELOG.md` (Keep a Changelog format, Semantic Versioning).
+See [CHANGELOG.md](CHANGELOG.md) (Keep a Changelog format, Semantic Versioning).
 
 ## Attribution
 Open Journal Systems (OJS) © Public Knowledge Project (PKP) – https://pkp.sfu.ca/
@@ -113,7 +118,7 @@ This repository is an operations companion resource and does not bundle OJS sour
 Изпращайте промени чрез Pull Request. При структурни промени в английската версия добавяйте съответната българска актуализация в същия PR.
 
 ## Дневник на промените
-Виж `CHANGELOG.md` (формат Keep a Changelog / SemVer).
+Виж [CHANGELOG.md](CHANGELOG.md) (формат Keep a Changelog / SemVer).
 
 ## Отказ от отговорност
 Този репозиторий е оперативен наръчник и не съдържа сорс кода на OJS.
@@ -135,7 +140,7 @@ Command:
 ./scripts/export-pdf.sh
 ```
 
-Result: `export/pdf/ojs-playbook-en.pdf` and `export/pdf/ojs-playbook-bg.pdf`.
+Result: `export/pdf/ojs-playbook-en.pdf` and `export/pdf/ojs-playbook-bg.pdf` (`export/` is gitignored).
 
 Exclude root bilingual files (README, LICENSE, CONTRIBUTING, CODE_OF_CONDUCT):
 ```bash
@@ -144,4 +149,4 @@ Exclude root bilingual files (README, LICENSE, CONTRIBUTING, CODE_OF_CONDUCT):
 
 ---
 
-**Last updated:** 2025-11-30
+**Last updated:** 2025-11-30 (last content change 2025-10-26).
